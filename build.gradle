@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+}
+
+group 'cg-automation'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+test {
+    useTestNG()
+}
+
+dependencies {
+    // add the dependencies as needed
+    testCompile group: 'org.testng', name: 'testng', version:'6.8.8'
+    testCompile fileTree('lib')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+
+    testCompile(group: 'org.uncommons', name: 'reportng', version: '1.1.4') {
+        exclude group: 'org.testng', module: 'testng'
+    }
+// https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.7.1'
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-api
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-api', version: '3.141.59'
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.141.59'
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-support', version: '3.141.59'
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+// https://mvnrepository.com/artifact/io.qameta.allure/allure-junit4
+    testCompile group: 'io.qameta.allure', name: 'allure-junit4', version: '2.13.1'
+// https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.13.1'
+
+    compile group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.7.0'
+
+// https://mvnrepository.com/artifact/log4j/log4j
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+// https://mvnrepository.com/artifact/com.browserstack/browserstack-local-java
+    compile group: 'com.browserstack', name: 'browserstack-local-java', version: '1.0.3'
+// https://mvnrepository.com/artifact/com.relevantcodes/extentreports
+    compile group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
+// https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.5'
+// https://mvnrepository.com/artifact/io.openapitools.api/capabilities
+    compile group: 'io.openapitools.api', name: 'capabilities', version: '1.0.4'
+}
