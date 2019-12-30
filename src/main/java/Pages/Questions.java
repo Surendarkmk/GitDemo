@@ -424,12 +424,13 @@ public class Questions extends TestBase {
     }
 
     @Step("Enter Primary Concept")
-    public void enterPrimaryConcept() {
+    public void enterPrimaryConcept(String conceptName) {
         pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
+        driver.findElement(By.xpath("((//button[@value='name'])[1])")).click();
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 4) + 1; //StepWise solution contains 4 fields with same ID
         String Step = String.valueOf(stepSize);
-        driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys("Electromagnetic wave");
+        driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys(conceptName);
         waitUntilElementClickable(primaryConceptList1);
         primaryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
@@ -441,13 +442,13 @@ public class Questions extends TestBase {
     }
 
     @Step("Enter Primary Concept Code")
-    public void enterPrimaryConceptCode() {
+    public void enterPrimaryConceptCode(String conceptCode) {
         pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
-        driver.findElement(By.xpath("//button[@class=\"MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped\"]")).click(); // Toogle button to select Primary concept Code
+        driver.findElement(By.xpath("//button[@class=\"MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped\"]")).click(); // Toggle button to select Primary concept Code
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 4) + 1; //StepWise solution contains 4 fields with same ID
         String Step = String.valueOf(stepSize);
-        driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys("KTBEI31");
+        driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys(conceptCode);
         waitUntilElementClickable(primaryConceptList1);
         primaryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
@@ -478,13 +479,13 @@ public class Questions extends TestBase {
     }
 
     @Step("Enter Secondry Concept")
-    public void enterSecondryConceptCode() {
+    public void enterSecondryConceptCode(String secondaryConceptCode) {
         pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
         driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped\"])[2])")).click(); // Toogle button to select Secondary concept code
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 4) + 2; //StepWise solution contains 4 fields with same ID + 2 second field is Secondary Concept
         String Step = String.valueOf(stepSize);
-        driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys("KTBLW41");
+        driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys(secondaryConceptCode);
         waitUntilElementClickable(SecondryConceptList1);
         SecondryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
@@ -909,7 +910,7 @@ public class Questions extends TestBase {
         delayTime(TimeDelay.TIME_1000S);
         selectBloomLevel();
         delayTime(TimeDelay.TIME_1000S);
-        enterPrimaryConcept();
+        enterPrimaryConcept(prop.getProperty("ConceptName"));
         enterSecondryConcept();
         delayTime(TimeDelay.TIME_1000S);
         SelectQuestionSource();
@@ -1396,12 +1397,12 @@ public class Questions extends TestBase {
     }
 
     @Step("Enter Primary Concept on Steps")
-    public void enterPrimaryConceptOnStepNumber(String stepNumber) {
+    public void enterPrimaryConceptOnStepNumber(String stepNumber, String conceptName) {
         pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
         int stepSize = ((noOfStep - 1) * 4) + 1;
         String Step = String.valueOf(stepSize);
-        driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys("Electromagnetic wave");
+        driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys(conceptName);
         waitUntilElementClickable(primaryConceptList1);
         primaryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
@@ -1465,15 +1466,24 @@ public class Questions extends TestBase {
         delayTime(TimeDelay.TIME_1000S);
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
         if (noOfStep == 1) {
-            int stepSize = (noOfStep * 1) + 2;
-            String Step = String.valueOf(stepSize);
-            driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[" + Step + "])")).click();
-        } else {
-            int stepSize = (noOfStep * 2) + 1;
-            String Step = String.valueOf(stepSize);
-            driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[" + Step + "])")).click();
+            if (driver.findElement(By.className("steps-primary-competency")) == null) {
+                driver.findElement(By.xpath("((//*[@class='stepwise-solution-container']//*[@class=' css-2b097c-container'])[" + noOfStep + "])")).click();
+            } else {
+                driver.findElement(By.xpath("((//*[@class='stepwise-solution-container']//*[@class=' css-2b097c-container'])[" + 2 + "])")).click();
+            }
+        } else if (noOfStep == 2) {
+            if (driver.findElement(By.className("steps-primary-competency")) == null) {
+                driver.findElement(By.xpath("((//*[@class='stepwise-solution-container']//*[@class=' css-2b097c-container'])[" + noOfStep + "])")).click();
+            } else {
+                driver.findElement(By.xpath("((//*[@class='stepwise-solution-container']//*[@class=' css-2b097c-container'])[" + 4 + "])")).click();
+            }
+        } else if (noOfStep == 3) {
+            if (driver.findElement(By.className("steps-primary-competency")) == null) {
+                driver.findElement(By.xpath("((//*[@class='stepwise-solution-container']//*[@class=' css-2b097c-container'])[" + noOfStep + "])")).click();
+            } else {
+                driver.findElement(By.xpath("((//*[@class='stepwise-solution-container']//*[@class=' css-2b097c-container'])[" + 6 + "])")).click();
+            }
         }
-        delayTime(TimeDelay.TIME_2000S);
         waitUntilElementClickable(driver.findElement(By.xpath("//div[@class=\" css-1n7v3ny-option\"]")));
         driver.findElement(By.xpath("//div[@class=\" css-1n7v3ny-option\"]")).click();
     }
@@ -1492,10 +1502,10 @@ public class Questions extends TestBase {
         confirmVideoLink.click();
     }
 
-    public void enterMetaTagStepToStepNumber(String stepNumber) {
+    public void enterMetaTagStepToStepNumber(String stepNumber, String conceptName) {
         clickMetaTagsOnStep(stepNumber);
         selectDifficultyLevelOnStep(stepNumber);
-        enterPrimaryConceptOnStepNumber(stepNumber);
+        enterPrimaryConceptOnStepNumber(stepNumber, conceptName);
         enterSecondryConceptOnStepNumber(stepNumber);
         enterIdealTimeOnStepNumber(stepNumber);
         clkBloomLevelOnStepNumber(stepNumber);
@@ -1606,5 +1616,61 @@ public class Questions extends TestBase {
         if (noOfStep == 4) {
             driver.findElement(By.xpath("((//input[@id=\"Marks\"])[" + stepNumber + "])")).sendKeys("2");
         }
+    }
+
+    @Step("Select Competency For Primary Competency")
+    public void selectCompetencyForPrimaryCompetency() {
+        delayTime(TimeDelay.TIME_2000S);
+        driver.findElement(By.xpath("//*[@class='primary-competency']//*[@class=' css-2b097c-container']")).click();
+        List<WebElement> competencyList = driver.findElements(By.xpath("//*[@class=' css-1575kqa-menu']//*[contains(@id,'react-select')]"));
+        int availableCompetency = competencyList.size();
+        System.out.println(availableCompetency);
+        for (int i = 0; i < availableCompetency; i++) {
+            System.out.println(i);
+            competencyList.get(i).click();
+            delayTime(TimeDelay.TIME_1000S);
+        }
+        driver.findElement(By.xpath("//*[@class='primary-competency']//*[@class=' css-2b097c-container']")).click();
+    }
+
+    @Step("Select Competency For Step Primary Competency")
+    public void selectCompetencyForStepPrimaryCompetency(String stepNumber) {
+        pageScroleMiddle(driver.findElement(By.xpath("((//*[@class='steps-primary-competency']//*[@class=' css-2b097c-container'])[" + stepNumber + "])")));
+        delayTime(TimeDelay.TIME_2000S);
+        driver.findElement(By.xpath("((//*[@class='steps-primary-competency']//*[@class=' css-2b097c-container'])[" + stepNumber + "])")).click();
+        List<WebElement> competencyList = driver.findElements(By.xpath("//*[@class=' css-1575kqa-menu']//*[contains(@id,'react-select')]"));
+        int availableCompetency = competencyList.size();
+        System.out.println(availableCompetency);
+        for (int i = 0; i < availableCompetency; i++) {
+            System.out.println(i);
+            competencyList.get(i).click();
+            delayTime(TimeDelay.TIME_1000S);
+        }
+        driver.findElement(By.xpath("((//*[@class='steps-primary-competency']//*[@class=' css-2b097c-container'])[" + stepNumber + "])")).click();
+    }
+
+    @Step("Select Competency For Secondary Competency")
+    public void selectCompetencyForSecondaryCompetency() {
+        delayTime(TimeDelay.TIME_2000S);
+        driver.findElement(By.xpath("//*[@class='secondary-competency']//*[@class=' css-2b097c-container']")).click();
+        List<WebElement> competencyList = driver.findElements(By.xpath("//*[@class=' css-1575kqa-menu']//*[contains(@id,'react-select')]"));
+        int availableCompetency = competencyList.size();
+        System.out.println(availableCompetency);
+        for (int i = 0; i < availableCompetency; i++) {
+            System.out.println(i);
+            competencyList.get(i).click();
+            delayTime(TimeDelay.TIME_1000S);
+        }
+        driver.findElement(By.xpath("//*[@class='secondary-competency']//*[@class=' css-2b097c-container']")).click();
+    }
+
+    public void verifyCompetencyOnPrimaryConcept() {
+        delayTime(TimeDelay.TIME_1000S);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@class='primary-competency']//*[@class='css-1rhbuit-multiValue']")).isDisplayed());
+    }
+
+    public void verifyCompetencyOnSecondaryConcept() {
+        delayTime(TimeDelay.TIME_1000S);
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@class='secondary-competency']//*[@class='css-1rhbuit-multiValue']")).isDisplayed());
     }
 }
