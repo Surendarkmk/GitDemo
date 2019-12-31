@@ -17,6 +17,17 @@ test {
 }
 
 dependencies {
+    implementation('io.qameta.allure:allure-okhttp3:2.10.0')
+}
+
+dependencies {
+    testRuntimeOnly('io.qameta.allure:allure-junit5:2.10.0')
+}
+dependencies {
+    testImplementation('io.qameta.allure:allure-selenide:2.10.0')
+}
+
+dependencies {
     // add the dependencies as needed
     testCompile group: 'org.testng', name: 'testng', version:'6.8.8'
     testCompile fileTree('lib')
