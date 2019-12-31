@@ -11,12 +11,14 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.*;
 import java.time.Instant;
+import java.util.List;
 import java.util.Properties;
 
 public class TestBase {
@@ -214,7 +216,7 @@ public class TestBase {
     }
 
     public void logout() {
-        delayTime(TimeDelay.TIME_2000S);
+        delayTime(TimeDelay.TIME_1000S);
         if (isElementPresent(By.xpath("//*[@class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeEnd\"]"))) {
             reactLogout();
         } else {
@@ -250,6 +252,18 @@ public class TestBase {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public void verifyNoElementFound(By locator) {
+        List<WebElement> lstElements = driver.findElements(locator);
+        int i = lstElements.size();
+        if (i >= 0) {
+            System.out.println("No Such Element Found");
+        } else {
+            System.out.println("Element Found");
+            Assert.assertFalse(lstElements.isEmpty());
+        }
+
+    }
+
     public void pageScrole(WebElement element) {
         try {
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
@@ -261,7 +275,6 @@ public class TestBase {
         String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
                 + "var elementTop = arguments[0].getBoundingClientRect().top;"
                 + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
-
         ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, element);
     }
 
