@@ -108,12 +108,22 @@ public class AuthorCreation extends TestBase {
         Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"authors_table\"]/tbody/tr[1]")).isDisplayed());
     }
 
+    @Test(description = "Verify Author search using Invalid code")
+    @Description("Verify Author search using Invalid code")
+    public void verifyAuthorSearchUsingInvalidCode() {
+        authors.clkAuthors();
+        authors.verifyAuthorListingPage();
+        authors.searchUsingCode("100");
+        authors.clkSearchButton();
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='authors_table']//*[@class='dataTables_empty']")).isDisplayed());
+    }
+
     @Test(description = "Verify Author in a book will be supported based on searching")
     @Description("Verify Author in a book will be supported based on searching")
     public void verifyAuthorSearchUsingCode() {
         authors.clkAuthors();
         authors.verifyAuthorListingPage();
-        authors.searchUsingCode("100");
+        authors.searchUsingCode("Author 1");
         authors.clkSearchButton();
         Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"authors_table\"]/tbody/tr[1]")).isDisplayed());
     }

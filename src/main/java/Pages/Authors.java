@@ -45,7 +45,7 @@ public class Authors extends TestBase {
 
     @Step("Click on Add New Author Button")
     public void clkAddNewAuthor() {
-        waitUntillElementVisible(driver.findElement(By.xpath("//*[@class=\"btn btn-primary btn-sm\"]")));
+        waitUntillElementVisible(driver.findElement(By.xpath("//*[contains(text(),'Add new Author')]")));
         driver.findElement(By.xpath("//*[@class=\"btn btn-primary btn-sm\"]")).click();
     }
 
@@ -76,6 +76,7 @@ public class Authors extends TestBase {
 
     @Step("Enter Author Name")
     public void enterAuthorName(String AuthorName) {
+        delayTime(TimeDelay.TIME_1000S);
         authorName.sendKeys(AuthorName);
     }
 
@@ -90,6 +91,7 @@ public class Authors extends TestBase {
 
     @Step("Enter Author Code")
     public void enterAuthorCode(String AuthorCode) {
+        delayTime(TimeDelay.TIME_1000S);
         authorCode.sendKeys(AuthorCode);
     }
 
@@ -101,6 +103,7 @@ public class Authors extends TestBase {
 
     @Step("Enter Author Description")
     public void enterAuthorDescription(String AuthorDescription) {
+        delayTime(TimeDelay.TIME_1000S);
         authorDescription.sendKeys(AuthorDescription);
     }
 
@@ -130,14 +133,17 @@ public class Authors extends TestBase {
     }
 
     public void verifyAuthorCode(String expectedAuthorCode) {
+        delayTime(TimeDelay.TIME_1000S);
         Assert.assertEquals(authorCode.getAttribute("value"), expectedAuthorCode);
     }
 
     public void verifyAuthorDescription(String expectedAuthorDescription) {
+        delayTime(TimeDelay.TIME_1000S);
         Assert.assertEquals(authorDescription.getAttribute("value"), expectedAuthorDescription);
     }
 
     public void verifyAuthorAlias(String expectedAuthorAlias) {
+        delayTime(TimeDelay.TIME_1000S);
         Assert.assertEquals(authorAlias.getAttribute("value"), expectedAuthorAlias);
     }
 
