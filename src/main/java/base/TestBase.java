@@ -213,7 +213,7 @@ public class TestBase {
         objlogin.clearUsernamePassword();
         objlogin.setUsernamePassword("CGautomation01@gmail.com", "embibe1234");
         objlogin.clickLogin();
-        delayTime(TimeDelay.TIME_3000S);
+        delayTime(TimeDelay.TIME_5000S);
     }
 
     public void logout() {

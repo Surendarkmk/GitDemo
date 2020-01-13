@@ -324,7 +324,6 @@ public class MultipleChoice extends TestBase {
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to edit the question created.")
     @Description("Verify user should be able to edit the question created.")
     public void userShouldAbleToEditQuestionCreated() {
-
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
@@ -332,15 +331,13 @@ public class MultipleChoice extends TestBase {
         questions.multiChoiceQuestionDetails();
         questions.clkSaveBtn();
         questions.verifyQuestionIDfield();
-        questions.enterQuestionText("Add data");
+        questions.enterQuestionText(" Add data");
         questions.clkSaveBtn();
-
     }
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify each time the question is edited new version number is added")
     @Description("Verify each time the question is edited new version number is added")
     public void eachTimeQuestionEditedNewVersionNumberAdded() {
-
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
@@ -350,10 +347,8 @@ public class MultipleChoice extends TestBase {
         questions.verifyQuestionIDfield();
         questions.enterQuestionText("Add data");
         questions.clkSaveBtn();
-        questions.waitForQuestionEditorEnable();
         questions.verifyVersionChange("2");
         questions.verifyVersionEditorName(prop.getProperty("UserName"));
-
     }
 
 

@@ -10,7 +10,6 @@ public class QuestionCreationAllTypes extends TestBase {
     @Test(groups = {Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SMOKE_TEST_CASE, Categories.ICMS_QUESTION}, description = "Create Single Choice Question")
     @Description("Create Single choice Question")
     public void createSingleChoiceQuestion() {
-
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
@@ -27,7 +26,6 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
-
     }
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Create Multiple Choice Question")
@@ -336,7 +334,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectMatrixGride();
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
-        questions.enterRowsandColumnsInMatrixGrid("4", "6");
+        questions.enterRowsandColumnsInMatrixGrid("4", "4");
         questions.selectCorrectAnswerMatrixGrid();
         questions.BookMetaTags();
         questions.enterHints1();

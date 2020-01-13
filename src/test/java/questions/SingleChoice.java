@@ -330,7 +330,7 @@ public class SingleChoice extends TestBase {
         questions.singleChoiceQuestionDetails();
         questions.clkSaveBtn();
         questions.verifyQuestionIDfield();
-        questions.enterQuestionText("Add data");
+        questions.enterQuestionText(" Add data");
         questions.clkSaveBtn();
 
     }
@@ -346,9 +346,8 @@ public class SingleChoice extends TestBase {
         questions.singleChoiceQuestionDetails();
         questions.clkSaveBtn();
         questions.verifyQuestionIDfield();
-        questions.enterQuestionText("Add data");
+        questions.enterQuestionText(" Add data");
         questions.clkSaveBtn();
-        questions.waitForQuestionEditorEnable();
         questions.verifyVersionChange("2");
         questions.verifyVersionEditorName(prop.getProperty("UserName"));
 

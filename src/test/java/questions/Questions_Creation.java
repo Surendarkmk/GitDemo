@@ -352,7 +352,6 @@ public class Questions_Creation extends TestBase {
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify each time the question is edited new version number is added")
     @Description("Verify each time the question is edited new version number is added")
     public void eachTimeQuestionEditedNewVersionNumberAdded() {
-
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
@@ -362,10 +361,8 @@ public class Questions_Creation extends TestBase {
         questions.verifyQuestionIDfield();
         questions.enterQuestionText(" Add data");
         questions.clkSaveBtn();
-        questions.waitForQuestionEditorEnable();
         questions.verifyVersionChange("2");
         questions.verifyVersionEditorName(prop.getProperty("UserName"));
-
     }
 
 

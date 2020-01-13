@@ -92,7 +92,7 @@ public class Questions extends TestBase {
 
     @Step("Click on Questions on Side bar")
     public void clkQuestions() {
-        waitUntilElementClickable(driver.findElement(By.xpath("//*[contains(text(),'Questions')]")));
+        waitUntillElementVisible(driver.findElement(By.xpath("//*[contains(text(),'Questions')]")));
         driver.findElement(By.xpath("//*[contains(text(),'Questions')]")).click(); // Click Questions on Side Bar
     }
 
@@ -252,7 +252,10 @@ public class Questions extends TestBase {
 
     @Step("Enter Question Text")
     public void enterQuestionText(String questionText) {
-        waitForQuestionEditorEnable();
+        try {
+            waitForQuestionEditorEnable();
+        } catch (Exception e) {
+        }
         pageScroleMiddle(driver.findElement(By.xpath("//*[@class='question-details-title']")));
         String CWH = driver.getWindowHandle();
         delayTime(TimeDelay.TIME_1000S);

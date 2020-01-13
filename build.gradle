@@ -18,7 +18,7 @@ plugins {
 allure {
     version = '2.7'
     autoconfigure = true
-    aspectjweaver = true
+    aspectjweaver = false
     //allureJavaVersion = LATEST_VERSION
 }
 
@@ -32,12 +32,11 @@ repositories {
 }
 
 tasks.withType(Test) {
-    systemProperties = [
-            //env              : System.getProperty('env', 'staging'),
-            //driver           : System.getProperty('driver', 'chrome'),
-            groups           : System.getProperty('groups', 'smoke'),
-            //driverEnvironment: System.getProperty('driverEnvironment', 'local')
-    ]
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
 }
 
 test {
