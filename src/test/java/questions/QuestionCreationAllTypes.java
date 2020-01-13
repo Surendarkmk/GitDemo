@@ -1,4 +1,4 @@
-package test_cases.questions;
+package questions;
 
 import base.TestBase;
 import io.qameta.allure.Description;
@@ -23,6 +23,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -45,6 +46,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -67,6 +69,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -89,6 +92,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -111,6 +115,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -133,6 +138,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -155,6 +161,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -177,6 +184,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -199,6 +207,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -221,6 +230,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -243,6 +253,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -265,6 +276,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -288,6 +300,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -309,6 +322,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
@@ -331,6 +345,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();

@@ -1,4 +1,4 @@
-package test_cases.questions;
+package questions;
 
 import base.TestBase;
 import io.qameta.allure.Description;
@@ -110,7 +110,7 @@ public class StepByStepSolution extends TestBase {
         questions.enterStepSolutionText1();
         questions.clkBlockQuotes();
         questions.clkCreateStepButton();
-        questions.enterMetaTagStepToStepNumber("1");
+        questions.enterMetaTagStepToStepNumber("1", prop.getProperty("ConceptName"));
         questions.clkLearningMapOnStepNumber("1");
         questions.enterTopicOnStepNumber("1");
         questions.enterStepSolutionText1();
@@ -131,7 +131,7 @@ public class StepByStepSolution extends TestBase {
         /*questions.enterStepSolutionText1();
         questions.clkBlockQuotes();*/
         questions.clkCreateStepButton();
-        questions.enterMetaTagStepToStepNumber("1");
+        questions.enterMetaTagStepToStepNumber("1", prop.getProperty("ConceptName"));
         questions.clkLearningMapOnStepNumber("1");
         questions.enterTopicOnStepNumber("1");
         questions.clkHintsOnStepNumber("1");

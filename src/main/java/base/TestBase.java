@@ -38,7 +38,6 @@ public class TestBase {
     public static Properties auth;
     public static Properties publication;
     public static Properties format;
-    public Home objhome;
     public Login objlogin;
     public Instructions objinstructions;
     public Concepts objconcepts;
@@ -48,6 +47,7 @@ public class TestBase {
     public Publications publications;
     public TestCreation testcreation;
     protected Questions questions;
+    public Books books;
     private Local local;
     private Instant wait;
 
@@ -201,7 +201,6 @@ public class TestBase {
         initialization();
         objquestgen = new QuestionGeneration(driver);
         objinstructions = new Instructions(driver);
-        objhome = new Home(driver);
         objlogin = new Login(driver);
         questions = new Questions(driver);
         objconcepts = new Concepts(driver);
@@ -209,10 +208,12 @@ public class TestBase {
         authors = new Authors(driver);
         publications = new Publications(driver);
         testcreation = new TestCreation(driver);
+        books = new Books(driver);
         objlogin.clickSignIn();
         objlogin.clearUsernamePassword();
         objlogin.setUsernamePassword("CGautomation01@gmail.com", "embibe1234");
         objlogin.clickLogin();
+        delayTime(TimeDelay.TIME_3000S);
     }
 
     public void logout() {
@@ -250,6 +251,11 @@ public class TestBase {
     public void waitUntilElementClickable(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    protected void waitForPageToLoad() {
+        new WebDriverWait(driver, 30).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 
     public void verifyNoElementFound(By locator) {

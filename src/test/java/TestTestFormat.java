@@ -1,5 +1,3 @@
-package test_cases;
-
 import base.TestBase;
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;

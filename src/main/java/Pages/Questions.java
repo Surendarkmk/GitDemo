@@ -25,54 +25,10 @@ public class Questions extends TestBase {
     WebElement partnerTextBox;
 
 
-    @FindBy(id = "Subjective Numerical")
-    WebElement Subjective_Numberical;
-    @FindBy(id = "Subjective Answer")
-    WebElement Subjective_Answer;
-    @FindBy(id = "Matrix Match Grid")
-    WebElement Matrix_Match_Grid;
-    @FindBy(id = "Matrix Match Single Choice")
-    WebElement Matrix_Match_Single_Choice;
-    @FindBy(id = "True False")
-    WebElement True_False;
-    @FindBy(id = "Assertion")
-    WebElement Assertion;
-    @FindBy(id = "Multiple Choice")
-    WebElement Multiple_Choice;
-    @FindBy(id = "Single Choice")
-    WebElement Single_Choice;
-    @FindBy(id = "Integer")
-    WebElement Integer;
-    @FindBy(id = "Fill In The Blanks")
-    WebElement Fill_In_The_Blanks;
-    @FindBy(id = "Multiple Fill In The Blanks")
-    WebElement Multiple_Fill_In_The_Blanks;
-    @FindBy(id = "Subjective")
-    WebElement Subjective;
-    @FindBy(id = "Single Drop Down")
-    WebElement Single_Drop_Down;
-    @FindBy(id = "Linked Comprehension")
-    WebElement Linked_Comprehension;
-    @FindBy(id = "Multiple Drop Down")
-    WebElement Multiple_Drop_Down;
     @FindBy(id = "add-ques-id")
     WebElement AssociateQuestionsTextBoxLinkedComprehension;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[3]/div[4]/div[2]/div[2]")
     WebElement addQuestionBtnLinkedComprehension;
-
-    //Status DropDown
-    @FindBy(xpath = "//*[@id=\"menu-name\"]/div[2]/ul/li[1]")
-    WebElement Select_Status;
-    @FindBy(id = "Draft")
-    WebElement Draft;
-    @FindBy(id = "Pending Approval")
-    WebElement Pending_Approval;
-    @FindBy(id = "Rejected")
-    WebElement Rejected;
-    @FindBy(id = "Approved")
-    WebElement Approved;
-    @FindBy(id = "Published")
-    WebElement Published;
 
     //New Question Creation
     @FindBy(xpath = "//*[@id=\"0\"]/div/div[2]/div/input")
@@ -116,8 +72,6 @@ public class Questions extends TestBase {
     @FindBy(id = "topic-checkbox-0")
     WebElement firstTopicCheckBox;
 
-    // Book Meta Tags
-
     @FindBy(xpath = "//div[@class=\"preview\"]")
     WebElement preview;
 
@@ -138,7 +92,7 @@ public class Questions extends TestBase {
 
     @Step("Click on Questions on Side bar")
     public void clkQuestions() {
-        waitUntillElementVisible(driver.findElement(By.xpath("//*[contains(text(),'Questions')]")));
+        waitUntilElementClickable(driver.findElement(By.xpath("//*[contains(text(),'Questions')]")));
         driver.findElement(By.xpath("//*[contains(text(),'Questions')]")).click(); // Click Questions on Side Bar
     }
 
@@ -221,84 +175,85 @@ public class Questions extends TestBase {
 
     @Step("Select Single Choice")
     public void selectSingleChoiceQuestCreation() {
-        waitUntillElementVisible(Single_Choice);
-        Single_Choice.click();
+        waitUntillElementVisible(driver.findElement(By.id("Single Choice")));
+        driver.findElement(By.id("Single Choice")).click();
     }
 
     public void selectMultiChoiceQuestCreation() {
-        waitUntillElementVisible(Multiple_Choice);
-        Multiple_Choice.click();
+        waitUntillElementVisible(driver.findElement(By.id("Multiple Choice")));
+        driver.findElement(By.id("Multiple Choice")).click();
+        delayTime(TimeDelay.TIME_2000S);
     }
 
     public void selectMatrixMatchSingleChoiceQuestCreation() {
-        waitUntilElementClickable(Matrix_Match_Single_Choice);
-        Matrix_Match_Single_Choice.click();
+        waitUntilElementClickable(driver.findElement(By.id("Matrix Match Single Choice")));
+        driver.findElement(By.id("Matrix Match Single Choice")).click();
     }
 
     public void selectTrueFalsQuestCreation() {
-        waitUntilElementClickable(True_False);
-        True_False.click();
+        waitUntilElementClickable(driver.findElement(By.id("True False")));
+        driver.findElement(By.id("True False")).click();
     }
 
     public void selectIntegerQuestCreation() {
-        waitUntilElementClickable(Integer);
-        Integer.click();
+        waitUntilElementClickable(driver.findElement(By.id("Integer")));
+        driver.findElement(By.id("Integer")).click();
     }
 
     public void selectSubjectiveNumericalQuestCreation() {
-        waitUntilElementClickable(Subjective_Numberical);
-        Subjective_Numberical.click();
+        waitUntilElementClickable(driver.findElement(By.id("Subjective Numerical")));
+        driver.findElement(By.id("Subjective Numerical")).click();
     }
 
     public void selectSubjectiveAnswerQuestCreation() {
-        waitUntilElementClickable(Subjective_Answer);
-        Subjective_Answer.click();
+        waitUntilElementClickable(driver.findElement(By.id("Subjective Answer")));
+        driver.findElement(By.id("Subjective Answer")).click();
     }
 
     public void selectAssertionQuestCreation() {
-        waitUntilElementClickable(Assertion);
-        Assertion.click();
+        waitUntilElementClickable(driver.findElement(By.id("Assertion")));
+        driver.findElement(By.id("Assertion")).click();
     }
 
     public void selectFillInTheBlanks() {
-        waitUntillElementVisible(Fill_In_The_Blanks);
-        Fill_In_The_Blanks.click();
+        waitUntillElementVisible(driver.findElement(By.id("Fill In The Blanks")));
+        driver.findElement(By.id("Fill In The Blanks")).click();
     }
 
     public void selectMultipleFillInTheBlanks() {
-        waitUntilElementClickable(Multiple_Fill_In_The_Blanks);
-        Multiple_Fill_In_The_Blanks.click();
+        waitUntilElementClickable(driver.findElement(By.id("Multiple Fill In The Blanks")));
+        driver.findElement(By.id("Multiple Fill In The Blanks")).click();
     }
 
     public void selectSingleDropDown() {
-        waitUntilElementClickable(Single_Drop_Down);
-        Single_Drop_Down.click();
+        waitUntilElementClickable(driver.findElement(By.id("Single Drop Down")));
+        driver.findElement(By.id("Single Drop Down")).click();
     }
 
     public void selectSubjective() {
-        waitUntilElementClickable(Subjective);
-        Subjective.click();
+        waitUntilElementClickable(driver.findElement(By.id("Subjective")));
+        driver.findElement(By.id("Subjective")).click();
     }
 
     public void selectLinkedComprehension() {
-        waitUntilElementClickable(Linked_Comprehension);
-        Linked_Comprehension.click();
+        waitUntilElementClickable(driver.findElement(By.id("Linked Comprehension")));
+        driver.findElement(By.id("Linked Comprehension")).click();
     }
 
     public void selectMultipleDropDown() {
-        waitUntilElementClickable(Multiple_Drop_Down);
-        Multiple_Drop_Down.click();
+        waitUntilElementClickable(driver.findElement(By.id("Multiple Drop Down")));
+        driver.findElement(By.id("Multiple Drop Down")).click();
     }
 
     public void selectMatrixGride() {
-        waitUntilElementClickable(Matrix_Match_Grid);
-        Matrix_Match_Grid.click();
+        waitUntilElementClickable(driver.findElement(By.id("Matrix Match Grid")));
+        driver.findElement(By.id("Matrix Match Grid")).click();
     }
 
     @Step("Enter Question Text")
     public void enterQuestionText(String questionText) {
         waitForQuestionEditorEnable();
-        pageScroleMiddle(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[3]/div[1]/div[1]/p")));
+        pageScroleMiddle(driver.findElement(By.xpath("//*[@class='question-details-title']")));
         String CWH = driver.getWindowHandle();
         delayTime(TimeDelay.TIME_1000S);
         WebElement iframe = driver.findElement(By.tagName("iframe"));
@@ -392,7 +347,7 @@ public class Questions extends TestBase {
 
     @Step("Click Add Hint")
     public void clkAddHints() {
-        pageScrole(driver.findElement(By.xpath("//*[@class=\"custom-tags-title\"]")));
+        pageScrole(driver.findElement(By.xpath("//*[@class=\"add-update-tag-button\"]")));
         AddHints.click();
     }
 
@@ -400,11 +355,11 @@ public class Questions extends TestBase {
     public void enterHints1() {
         clkAddHints();
         ckEditor(driver.findElement(By.xpath("//div[@class=\"hints-editor\"]")), "Test Hint");
+        driver.findElement(By.className("hints-sequence")).click();
     }
 
     @Step("Click Add Hints and enter Hint 2")
     public void enterHint2() {
-        pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/p")));
         clkAddHints();
         ckEditor(driver.findElement(By.xpath("((//div[@class=\"hints-editor\"])[2])")), "Hint 2");
     }
@@ -425,7 +380,7 @@ public class Questions extends TestBase {
 
     @Step("Enter Primary Concept")
     public void enterPrimaryConcept(String conceptName) {
-        pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
+        pageScrole(driver.findElement(By.className("question-meta-tags-title")));
         driver.findElement(By.xpath("((//button[@value='name'])[1])")).click();
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 4) + 1; //StepWise solution contains 4 fields with same ID
@@ -534,7 +489,8 @@ public class Questions extends TestBase {
 
     @Step("Remove Secondary Concept")
     public void removeSecondaryConcept() {
-        pageScrole(driver.findElement(By.xpath("//div[@class=\"add-hints-btn\"]")));
+        delayTime(TimeDelay.TIME_1000S);
+        pageScrole(driver.findElement(By.className("question-meta-tags-title-div")));
         removeSecondaryConcept.click();
         delayTime(TimeDelay.TIME_500S);
         driver.findElement(By.xpath("//*[contains(text(),'Confirm')]")).click(); // Click POPUP confirm
@@ -677,27 +633,6 @@ public class Questions extends TestBase {
         int stepSize = (numberSteps.size() * 7) + 10; //StepWise solution contains 7 fields with same ID and 10rd field without Step is Status dropDown.
         String Step = String.valueOf(stepSize);
         driver.findElement(By.xpath("((//*[@id=\"mui-component-select-name\"])[" + Step + "])")).click();
-    }
-
-    public void statusNextStep() {
-        /*if (Pending_Approval.isDisplayed()) {
-            Pending_Approval.click();
-        } else if (Approved.isDisplayed()) {
-            Approved.click();
-        } else if (Published.isDisplayed()) {
-            Published.click();
-        }*/
-        Published.click();
-    }
-
-    @Step("Select Pending Approval Button")
-    public void clkPendingApprovalStatus() {
-        Pending_Approval.click();
-    }
-
-    @Step("Click Submit Button")
-    public void clkSumbit() {
-        submitBtn.click();
     }
 
     @Step("Click Save Button")
@@ -935,6 +870,12 @@ public class Questions extends TestBase {
         delayTime(TimeDelay.TIME_2000S);
         ClkDoneQuestionLearningMap();
 
+    }
+
+    //Verify Book Meta Tags
+    public void verifyBookMetaTags() {
+        pageScrole(driver.findElement(By.xpath("//*[contains(text(),'Book Meta Tags')]")));
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@class='preview-tags']//*[@class='preview-tag-field']")).isDisplayed());
     }
 
     //Verify Question Meta details
@@ -1201,7 +1142,7 @@ public class Questions extends TestBase {
     @Step("Verify Curator Name")
     public void verifyCuratorName() {
         String curatorName = curator.getText();
-        Assert.assertEquals(curatorName, "cg01 tester");
+        Assert.assertEquals(curatorName, "CG01 Automation");
         System.out.println("Curator name Present is " + curatorName);
     }
 
@@ -1244,16 +1185,9 @@ public class Questions extends TestBase {
     @Step("Click Check for Duplication")
     public void clkDupication() {
         pageScrole(driver.findElement(By.xpath("//div[@class=\"key-attributes-title-div\"]")));
-        if (driver.findElements(By.xpath("//div[@class=\"version-main-container\"]")).size() != 0) {
-            List<WebElement> versionsCount = driver.findElement(By.xpath("//div[@class=\"version-main-container\"]")).findElements(By.className("MuiIconButton-label"));
-            int version = versionsCount.size() + 3;
-            String numberOfVersions = String.valueOf(version);
-            driver.findElement(By.xpath("((//span[@class=\"MuiIconButton-label\"])[" + numberOfVersions + "])")).click();
-        } else {
-            driver.findElement(By.xpath("((//span[@class=\"MuiIconButton-label\"])[3])")).click();
-        }
-        driver.findElement(By.xpath("//*[@id=\"long-menu\"]/div[3]/ul/li")).click();
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        driver.findElement(By.xpath("//*[@class='question-details-title-div']//*[@class='MuiButtonBase-root MuiIconButton-root']")).click(); // Click Hamburger Icon
+        driver.findElement(By.xpath("//*[@id=\"long-menu\"]/div[3]/ul/li")).click(); //Click "Check for Duplicates"
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[7]/div[3]/div/div[1]/button/span[1]"))); // wait until popup for the list of question id's
     }
 
@@ -1306,7 +1240,7 @@ public class Questions extends TestBase {
 
     @Step("Verify Any error message while create question")
     public void verifyAnyErrorMessageWhileSave() {
-        delayTime(TimeDelay.TIME_500S);
+        delayTime(TimeDelay.TIME_2000S);
         try {
             String validationMessage = snackBar.getText();
             System.out.println(validationMessage);

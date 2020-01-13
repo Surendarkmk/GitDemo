@@ -1,10 +1,8 @@
-package test_cases.pubication;
+package pubication;
 
 import base.TestBase;
-import constants.TimeDelay;
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

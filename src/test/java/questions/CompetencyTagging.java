@@ -1,7 +1,6 @@
-package test_cases.questions;
+package questions;
 
 import base.TestBase;
-import constants.TimeDelay;
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.testng.Assert;

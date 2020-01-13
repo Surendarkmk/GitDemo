@@ -1,5 +1,3 @@
-package test_cases;
-
 import base.TestBase;
 import org.testng.annotations.Test;
 

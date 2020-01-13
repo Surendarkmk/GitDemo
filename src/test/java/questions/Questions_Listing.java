@@ -1,4 +1,4 @@
-package test_cases.questions;
+package questions;
 
 import base.TestBase;
 import constants.TimeDelay;

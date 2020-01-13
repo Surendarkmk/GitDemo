@@ -1,5 +1,25 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.5"
+    }
+}
+
+plugins {
+    id 'io.qameta.allure' version("2.5")
+}
+
 plugins {
     id 'java'
+}
+
+allure {
+    version = '2.7'
+    autoconfigure = true
+    aspectjweaver = true
+    //allureJavaVersion = LATEST_VERSION
 }
 
 group 'cg-automation'
@@ -11,32 +31,23 @@ repositories {
     mavenCentral()
 }
 
+tasks.withType(Test) {
+    systemProperties = [
+            //env              : System.getProperty('env', 'staging'),
+            //driver           : System.getProperty('driver', 'chrome'),
+            groups           : System.getProperty('groups', 'smoke'),
+            //driverEnvironment: System.getProperty('driverEnvironment', 'local')
+    ]
+}
 
 test {
     useTestNG()
 }
 
 dependencies {
-    implementation('io.qameta.allure:allure-okhttp3:2.10.0')
-}
-
-dependencies {
-    testRuntimeOnly('io.qameta.allure:allure-junit5:2.10.0')
-}
-dependencies {
-    testImplementation('io.qameta.allure:allure-selenide:2.10.0')
-}
-
-dependencies {
-    // add the dependencies as needed
-    testCompile group: 'org.testng', name: 'testng', version:'6.8.8'
-    testCompile fileTree('lib')
+    testCompile group: 'org.testng', name: 'testng', version:'6.14.3'
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
-    // https://mvnrepository.com/artifact/org.testng/testng
-    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
-
     testCompile(group: 'org.uncommons', name: 'reportng', version: '1.1.4') {
         exclude group: 'org.testng', module: 'testng'
     }
@@ -52,11 +63,8 @@ dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-support', version: '3.141.59'
 // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver
     compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
-// https://mvnrepository.com/artifact/io.qameta.allure/allure-junit4
-    testCompile group: 'io.qameta.allure', name: 'allure-junit4', version: '2.13.1'
-// https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
-    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.13.1'
 
+    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.7.0'
     compile group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.7.0'
 
 // https://mvnrepository.com/artifact/log4j/log4j
@@ -70,3 +78,4 @@ dependencies {
 // https://mvnrepository.com/artifact/io.openapitools.api/capabilities
     compile group: 'io.openapitools.api', name: 'capabilities', version: '1.0.4'
 }
+

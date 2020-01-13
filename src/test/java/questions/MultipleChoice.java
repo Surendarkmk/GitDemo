@@ -1,63 +1,55 @@
-package test_cases.questions;
+package questions;
 
 import base.TestBase;
 import constants.TimeDelay;
 import io.qameta.allure.Description;
 import io.qameta.allure.Story;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Categories;
 
-public class Questions_Creation extends TestBase {
+public class MultipleChoice extends TestBase {
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify clicking on Create New Question, page should open to create new question")
-    @Description("Verify clicking on Create New Question, page should open to create new question")
-    public void verifyClickingOnCreateNewQuestion() {
-
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Create Multiple Choice Question")
+    @Description("Create Multiple choice Question")
+    public void createMultipleChoiceQuestion() {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
-        String currentURL = driver.getCurrentUrl();
-        Assert.assertEquals(currentURL, "https://new-content-admin-staging.embibe.com/questions/new");
-
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
+        questions.BookMetaTags();
+        questions.enterHints1();
+        questions.questionsMetaTag1();
+        questions.QuestionLearningMaps();
+        questions.clkSaveBtn();
+        questions.verifyAnyErrorMessageWhileSave();
+        questions.verifyQuestionIDfield();
+        questions.verifyBookMetaTags();
+        questions.verifyQuestionMetaDetails();
+        questions.verifyVideoSolutionForSavedQuestion();
+        questions.verifyQuestionLearningMaps();
     }
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify by default Curator name appears in the curator text box.")
     @Description("Verify by default Curator name appears in the curator text box.")
     public void defaultCuratorNameAppearsInTheCuratorTextBox() {
-
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         delayTime(TimeDelay.TIME_3000S);
         questions.verifyCuratorName();
-
-    }
-
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to select the required Partner name,under create question.")
-    @Description("Verify user should be able to select the required Partner name,under create question.")
-    public void selectTheRequiredPartnerName() {
-
-        questions.clkQuestions();
-        questions.clkCreateQuestion();
-        questions.selectPartner("imagin8ors");
-        questions.verifyPartnerName();
-
     }
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user is  able to enter the question text under the Question Details.")
     @Description("Verify user is  able to enter the question text under the Question Details.")
     public void enterQuestionTextUnderQuestionDetails() {
-
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
-
     }
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to enter the option under option and mark it correct/incorrect")
@@ -67,7 +59,7 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         questions.enterOptionText1(prop.getProperty("option1"));
         questions.enterOptionText2(prop.getProperty("MultiChoiceAnserText"));
@@ -83,7 +75,7 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
         questions.enterOptionText1(prop.getProperty("option1"));
@@ -102,7 +94,7 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         delayTime(TimeDelay.TIME_2000S);
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
@@ -120,7 +112,7 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         questions.questionsMetaTag1();
         questions.verifyQuestionMetaDetails();
@@ -135,10 +127,10 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
-        questions.enterPrimaryConceptCode();
-        questions.enterSecondryConceptCode();
+        questions.enterPrimaryConceptCode(prop.getProperty("ConceptCode"));
+        questions.enterSecondryConceptCode(prop.getProperty("SecondaryConceptCode"));
         questions.verifyPrimaryConcept();
         questions.verifySecondaryConcept();
 
@@ -151,10 +143,10 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
-        questions.singleChoiceQuestionDetails();
-        questions.enterPrimaryConcept();
+        questions.multiChoiceQuestionDetails();
+        questions.enterPrimaryConcept(prop.getProperty("ConceptName"));
         questions.enterSecondryConcept();
         questions.enterSecodaryConcept2();
         questions.enterSecodaryConcept3();
@@ -169,8 +161,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
-        questions.enterPrimaryConcept();
+        questions.selectMultiChoiceQuestCreation();
+        questions.enterPrimaryConcept(prop.getProperty("ConceptName"));
         questions.enterSecondryConcept();
         questions.enterSecodaryConcept2();
         questions.enterSecodaryConcept3();
@@ -182,28 +174,24 @@ public class Questions_Creation extends TestBase {
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to save the question without Hint, under question meta tag.")
     @Description("Verify user should be able to save the question without Hint, under question meta tag.")
     public void ableToSaveTheQuestionWithoutHint() {
-
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
-        questions.singleChoiceQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.clkSaveBtn();
-
     }
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to add hint to the question , under question meta tag.")
     @Description("Verify user should be able to add hint to the question , under question meta tag.")
     public void ableToAddHintToQuestion() {
-
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
-        questions.singleChoiceQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.enterHints1();
         questions.clkSaveBtn();
-
     }
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to add multiple hint for the questions.")
@@ -213,8 +201,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
-        questions.singleChoiceQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.enterHints1();
         questions.enterHint2();
         questions.clkSaveBtn();
@@ -228,8 +216,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
-        questions.singleChoiceQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.clkAddHints();
         questions.clkSaveBtn();
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithBlankHint"));
@@ -275,8 +263,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectIntegerQuestCreation();
-        questions.intergerQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.clkAddVideoLinkBtn();
         questions.enterVideoLink(prop.getProperty("validVideoLink"));
         questions.clkVideoPreview();
@@ -294,8 +282,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectIntegerQuestCreation();
-        questions.intergerQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         delayTime(TimeDelay.TIME_10000S);
@@ -310,8 +298,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectMatrixMatchSingleChoiceQuestCreation();
-        questions.singleChoiceQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.clkSaveBtn();
         questions.verifyQuestionIDfield();
 
@@ -324,8 +312,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectMatrixMatchSingleChoiceQuestCreation();
-        questions.singleChoiceQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.clkSaveBtn();
         delayTime(TimeDelay.TIME_5000S);
         questions.verifyVersionChange("1");
@@ -340,8 +328,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSubjectiveAnswerQuestCreation();
-        questions.subjectiveAnswerDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.clkSaveBtn();
         questions.verifyQuestionIDfield();
         questions.enterQuestionText("Add data");
@@ -356,8 +344,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSubjectiveAnswerQuestCreation();
-        questions.subjectiveAnswerDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.clkSaveBtn();
         questions.verifyQuestionIDfield();
         questions.enterQuestionText("Add data");
@@ -377,9 +365,9 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
-        questions.singleChoiceQuestionDetails();
-        questions.enterPrimaryConcept();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
+        questions.enterPrimaryConcept(prop.getProperty("ConceptName"));
         questions.enterSecondryConcept();
         questions.enterSecodaryConcept2();
         questions.enterSecodaryConcept3();
@@ -397,9 +385,10 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectIntegerQuestCreation();
-        questions.intergerQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.clkDupication();
+        questions.verifyAnyErrorMessageWhileSave();
         delayTime(TimeDelay.TIME_3000S);
         questions.closeDuplication();
 
@@ -412,8 +401,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
-        questions.singleChoiceQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.selectSmartTaggingJEEmain();
         questions.clkSmartTagButton();
         delayTime(TimeDelay.TIME_5000S);
@@ -432,8 +421,8 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
-        questions.singleChoiceQuestionDetails();
+        questions.selectMultiChoiceQuestCreation();
+        questions.multiChoiceQuestionDetails();
         questions.selectSmartTaggingNEET();
         questions.clkSmartTagButton();
         delayTime(TimeDelay.TIME_5000S);
@@ -452,7 +441,7 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         questions.selectSmartTaggingJEEmain();
         questions.clkSmartTagButton();
@@ -467,7 +456,7 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectSingleChoiceQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
         questions.selectSmartTaggingJEEmain();
@@ -483,9 +472,12 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectTrueFalsQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
+        questions.enterOptionText1(prop.getProperty("option1"));
+        questions.enterOptionText2(prop.getProperty("option2"));
+        questions.removeOption3and4();
         questions.selectSmartTaggingJEEmain();
         questions.clkSmartTagButton();
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithoutSelectingAnswerOption"));
@@ -500,10 +492,13 @@ public class Questions_Creation extends TestBase {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
-        questions.selectTrueFalsQuestCreation();
+        questions.selectMultiChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
+        questions.enterOptionText1(prop.getProperty("option1"));
         questions.selectCorrectOption1();
+        questions.enterOptionText2(prop.getProperty("option2"));
+        questions.removeOption3and4();
         questions.selectSmartTaggingJEEmain();
         questions.clkSmartTagButton();
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithoutSolution"));

@@ -1,5 +1,3 @@
-package test_cases;
-
 import base.TestBase;
 import Pages.Login;
 import Pages.Signup;
