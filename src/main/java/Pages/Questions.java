@@ -17,13 +17,8 @@ public class Questions extends TestBase {
 
     WebDriver driver;
     /////////// Key Attributes ////////////
-    @FindBy(xpath = "//*[@class='key-attribute-textfield']")
-    WebElement questionID;
-    @FindBy(xpath = "//*[@class=' css-107lb6w-singleValue']")
-    WebElement curator;
     @FindBy(id = "react-select-4-input")
     WebElement partnerTextBox;
-
 
     @FindBy(id = "add-ques-id")
     WebElement AssociateQuestionsTextBoxLinkedComprehension;
@@ -37,7 +32,6 @@ public class Questions extends TestBase {
     @FindBy(xpath = "//*[contains(text(),'Add Hints')]")
     WebElement AddHints;
 
-    //Question Details
     @FindBy(xpath = "/html/body/div[2]/div/div/div[3]/div[3]/div[2]/div/div/div/div/iframe")
     WebElement questionEditor;
 
@@ -46,9 +40,9 @@ public class Questions extends TestBase {
     WebElement smartTagDropDown;
     @FindBy(xpath = "//div[@class=\"PRIMARY_CONCEPT0\"]")
     WebElement primaryConceptList1;
-    @FindBy(xpath = "/html/body/div[2]/div/div/div[3]/div[7]/div[1]/div[1]/div[2]/div[7]/div[2]/div[2]/div/div[1]/div[1]/div/input")
+    @FindBy(xpath = "/html/body/div[2]/div/div/div[3]/div[7]/div[1]/div[1]/div[2]/div[7]/div[2]/div/div[2]/div/div[1]/div[1]/div/input")
     WebElement secondaryConcept2;
-    @FindBy(xpath = "/html/body/div[2]/div/div/div[3]/div[7]/div[1]/div[1]/div[2]/div[8]/div[2]/div[2]/div/div[1]/div[1]/div/input")
+    @FindBy(xpath = "/html/body/div[2]/div/div/div[3]/div[7]/div[1]/div[1]/div[2]/div[8]/div[2]/div/div[2]/div/div[1]/div[1]/div/input")
     WebElement secondaryConcept3;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[3]/div[7]/div[1]/div[1]/div[2]/div[5]/div[3]")
     WebElement addSecondaryConcept; // "Plus +" icon to add secondary concept
@@ -312,7 +306,13 @@ public class Questions extends TestBase {
     @Step("Enter Solution Text 1 value")
     public void enterStepSolutionText1() {
         pageScrole(driver.findElement(By.xpath("//div[@class=\"question-details-text row-block\"]")));
-        ckEditor1(driver.findElement(By.xpath("((//div[@class=\"question-details-row-solution-editor-div\"])[1])")), "Solution 1 Text");
+        ckEditor(driver.findElement(By.xpath("((//div[@class=\"question-details-row-solution-editor-div\"])[1])")), "Solution 1 Text");
+    }
+
+    @Step("Enter Solution Text for Matrix Grid")
+    public void enterSolutionTextForMatrixGrid() {
+        pageScroleMiddle(driver.findElement(By.className("matrix-match-solution-text")));
+        ckEditor(driver.findElement(By.className("matrix-match-solution")), "Test Matrix Grid Solution");
     }
 
     @Step("Enter Solution Text 2 value")
@@ -401,7 +401,7 @@ public class Questions extends TestBase {
 
     @Step("Enter Primary Concept Code")
     public void enterPrimaryConceptCode(String conceptCode) {
-        pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
+        pageScrole(driver.findElement(By.className("question-meta-tags-title")));
         driver.findElement(By.xpath("//button[@class=\"MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped\"]")).click(); // Toggle button to select Primary concept Code
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 4) + 1; //StepWise solution contains 4 fields with same ID
@@ -410,16 +410,13 @@ public class Questions extends TestBase {
         waitUntilElementClickable(primaryConceptList1);
         primaryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
-        try {
-            driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button/span[1]")).click(); //Click Select after selecting the concept
-        } catch (NoSuchElementException e) {
-
-        }
+        waitUntillElementVisible(driver.findElement(By.xpath("//*[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth MuiPaper-rounded']//*[@class='MuiButton-label']")));
+        driver.findElement(By.xpath("//*[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth MuiPaper-rounded']//*[@class='MuiButton-label']")).click(); //Click Select after selecting the concept
     }
 
     @Step("Enter Secondry Concept")
     public void enterSecondryConcept() {
-        pageScrole(smartTagDropDown);
+        pageScrole(driver.findElement(By.className("question-meta-tags-title")));
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 4) + 2; //StepWise solution contains 4 fields with same ID + 2 second field is Secondary Concept
         String Step = String.valueOf(stepSize);
@@ -427,18 +424,14 @@ public class Questions extends TestBase {
         waitUntilElementClickable(SecondryConceptList1);
         SecondryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
-        try {
-            WebElement secondryConceptSelect = driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button/span[1]"));
+        WebElement secondryConceptSelect = driver.findElement(By.xpath("//*[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth MuiPaper-rounded']//*[@class='MuiButton-label']"));
             waitUntilElementClickable(secondryConceptSelect);
             secondryConceptSelect.click(); //Click Select after selecting the concept
-        } catch (NoSuchElementException e) {
-
-        }
     }
 
     @Step("Enter Secondry Concept")
     public void enterSecondryConceptCode(String secondaryConceptCode) {
-        pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
+        pageScrole(driver.findElement(By.className("question-meta-tags-title")));
         driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped\"])[2])")).click(); // Toogle button to select Secondary concept code
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 4) + 2; //StepWise solution contains 4 fields with same ID + 2 second field is Secondary Concept
@@ -447,47 +440,35 @@ public class Questions extends TestBase {
         waitUntilElementClickable(SecondryConceptList1);
         SecondryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
-        try {
-            WebElement secondryConceptSelect = driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button/span[1]"));
+        WebElement secondryConceptSelect = driver.findElement(By.xpath("//*[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth MuiPaper-rounded']//*[@class='MuiButton-label']"));
             waitUntilElementClickable(secondryConceptSelect);
             secondryConceptSelect.click(); //Click Select after selecting the concept
-        } catch (NoSuchElementException e) {
-
-        }
     }
 
     @Step("Add Secondry Concept 2")
     public void enterSecodaryConcept2() {
-        pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
+        pageScrole(driver.findElement(By.className("question-meta-tags-title")));
         addSecondaryConcept.click();
         secondaryConcept2.sendKeys("WATER");
         waitUntilElementClickable(SecondryConceptList1);
         SecondryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
-        try {
-            WebElement secondryConceptSelect = driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button/span[1]"));
+        WebElement secondryConceptSelect = driver.findElement(By.xpath("//*[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth MuiPaper-rounded']//*[@class='MuiButton-label']"));
             waitUntilElementClickable(secondryConceptSelect);
             secondryConceptSelect.click(); //Click Select after selecting the concept
-        } catch (NoSuchElementException e) {
-
-        }
     }
 
     @Step("Add Secondry Concept 3")
     public void enterSecodaryConcept3() {
-        pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
+        pageScrole(driver.findElement(By.className("question-meta-tags-title")));
         addSecondaryConcept.click();
         secondaryConcept3.sendKeys("Pollution");
         waitUntilElementClickable(SecondryConceptList1);
         SecondryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
-        try {
-            WebElement secondryConceptSelect = driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button/span[1]"));
+        WebElement secondryConceptSelect = driver.findElement(By.xpath("//*[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth MuiPaper-rounded']//*[@class='MuiButton-label']"));
             waitUntilElementClickable(secondryConceptSelect);
             secondryConceptSelect.click(); //Click Select after selecting the concept
-        } catch (NoSuchElementException e) {
-
-        }
     }
 
     @Step("Remove Secondary Concept")
@@ -1107,6 +1088,7 @@ public class Questions extends TestBase {
 
     @Step("Verify Question ID")
     public void verifyQuestionIDfield() {
+        WebElement questionID = driver.findElement(By.xpath("//*[@class='key-attribute-textfield']"));
         waitUntillElementVisible(questionID);
         pageScrole(driver.findElement(By.className("key-attributes-title-div")));
         String ID = questionID.getAttribute("value");
@@ -1144,7 +1126,7 @@ public class Questions extends TestBase {
 
     @Step("Verify Curator Name")
     public void verifyCuratorName() {
-        String curatorName = curator.getText();
+        String curatorName = driver.findElement(By.xpath("//*[@class=' css-107lb6w-singleValue']")).getText();
         Assert.assertEquals(curatorName, "CG01 Automation");
         System.out.println("Curator name Present is " + curatorName);
     }
@@ -1191,7 +1173,12 @@ public class Questions extends TestBase {
         driver.findElement(By.xpath("//*[@class='question-details-title-div']//*[@class='MuiButtonBase-root MuiIconButton-root']")).click(); // Click Hamburger Icon
         driver.findElement(By.xpath("//*[@id=\"long-menu\"]/div[3]/ul/li")).click(); //Click "Check for Duplicates"
         WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[7]/div[3]/div/div[1]/button/span[1]"))); // wait until popup for the list of question id's
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[7]/div[3]/div/div[1]/button/span[1]"))); // wait until popup for the list of question id's
+        } catch (Exception e) {
+        }
+        Boolean isPresent = driver.findElements(By.xpath("/html/body/div[7]/div[3]/div/div[1]/button/span[1]")).size() > 0;
+        Assert.assertTrue(isPresent);
     }
 
     @Step("Close duplication window")
