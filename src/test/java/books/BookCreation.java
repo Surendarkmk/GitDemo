@@ -88,9 +88,8 @@ public class BookCreation extends TestBase {
         books.enterBookSubject("Physics");
         books.enterEmbibeBookCode();
         books.clickSave();
-        books.verifyValidationMessage("\n" +
-                "        Book was successfully created.\n" +
-                "    ");
+        books.verifyValidationMessage("×\n" +
+                "Book was successfully created.");
     }
 
     @Test(description = "Verify by creating new book without ISBN code")
@@ -108,8 +107,7 @@ public class BookCreation extends TestBase {
         books.enterBookSubject("Physics");
         books.enterEmbibeBookCode();
         books.clickSave();
-        books.verifyValidationMessage("\n" +
-                "        Book was successfully created.\n" +
-                "    ");
+        books.verifyValidationMessage("×\n" +
+                "Book was successfully created.");
     }
 }
