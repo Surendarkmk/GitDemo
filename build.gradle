@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "io.qameta.allure:allure-gradle:2.5"
+        classpath "io.qameta.allure:allure-gradle:2.7.0"
     }
 }
 
@@ -18,7 +18,7 @@ plugins {
 allure {
     version = '2.7'
     autoconfigure = true
-    aspectjweaver = false
+    aspectjweaver = true
     //allureJavaVersion = LATEST_VERSION
 }
 
@@ -63,7 +63,7 @@ dependencies {
 // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver
     compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
 
-    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.7.0'
+    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.13.1'
     compile group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.7.0'
 
 // https://mvnrepository.com/artifact/log4j/log4j
