@@ -122,7 +122,7 @@ public class Books extends TestBase {
     @Step("Click on Save Button")
     public void clickSave() {
         driver.findElement(By.xpath("//*[@value='Save']")).click();
-        delayTime(TimeDelay.TIME_1000S);
+        delayTime(TimeDelay.TIME_2000S);
     }
 
     @Step("Verify Tenant Name for Book")
@@ -151,7 +151,8 @@ public class Books extends TestBase {
 
     @Step("Verify Validation message after save")
     public void verifyValidationMessage(String expectedValidationMessage) {
-        String validationMessage = driver.findElement(By.className("alert alert-success alert-dismissable")).getText();
+        delayTime(TimeDelay.TIME_3000S);
+        String validationMessage = driver.findElement(By.xpath("//*[@class='alert alert-success alert-dismissable']")).getText();
         Assert.assertEquals(validationMessage, expectedValidationMessage);
     }
 }
