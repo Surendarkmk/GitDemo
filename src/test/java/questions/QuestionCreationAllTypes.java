@@ -328,7 +328,7 @@ public class QuestionCreationAllTypes extends TestBase {
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Create Matrix Gride Question")
     @Description("Create Matrix Gride Question")
-    public void createMatrixGrideQuestion() {
+    public void createMatrixGridQuestion() {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
@@ -336,6 +336,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
         questions.enterRowsandColumnsInMatrixGrid("4", "4");
         questions.selectCorrectAnswerMatrixGrid();
+        questions.enterSolutionTextForMatrixGrid();
         questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
