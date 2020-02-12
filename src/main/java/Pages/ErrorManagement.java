@@ -125,10 +125,29 @@ public class ErrorManagement extends TestBase {
     public void clickCreatorInField() {
         driver.findElement(By.id("simple-select-outlined")).click();
         List<WebElement> creator = driver.findElement(By.xpath("//ul[@class='MuiList-root MuiMenu-list MuiList-padding']")).findElements(By.tagName("li"));
-        creator.get(1).click();
+        creator.get(3).click();
     }
 
     public void clickSearch() {
         driver.findElement(By.xpath("//*[@class='btn-success btn Ripple-parent search-button']")).click();
+        delayTime(TimeDelay.TIME_3000S);
+    }
+
+    public void verifyListingPageAvailable() {
+        Assert.assertFalse(isElementPresent(By.id("row-1")));
+    }
+
+    public void verifyListingPageNotAvailable() {
+        Assert.assertTrue(isElementPresent(By.id("row-1")));
+    }
+
+    public void verifyCreatedBy(String expectedUser) {
+        String createdBy = driver.findElement(By.id("cell-KmmGe1GLd-9")).getText();
+        Assert.assertEquals(createdBy, expectedUser);
+    }
+
+    public void openRecentError() {
+        List<WebElement> listError = driver.findElements(By.className("error-open-record"));
+        System.out.println(listError.size());
     }
 }

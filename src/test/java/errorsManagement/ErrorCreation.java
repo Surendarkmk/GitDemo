@@ -174,4 +174,44 @@ public class ErrorCreation extends TestBase {
         errorManagement.verifyErrorMaxDeduction("87");
     }
 
+    @Test(groups = {Categories.ICMS_SMOKE_TEST_CASE, Categories.ICMS_ERRORMANAGEMENT}, description = "Verify the error management listing page")
+    @Description("Verify the error management listing page")
+    public void verifyErrorManagementListingPage() {
+        errorManagement.clickErrorManagement();
+        errorManagement.verifyListingPageAvailable();
+    }
+
+    @Test(groups = {Categories.ICMS_SMOKE_TEST_CASE, Categories.ICMS_ERRORMANAGEMENT}, description = "Verify the search using ID with the valid data")
+    @Description("Verify the search using ID with the valid data")
+    public void verifySearchUsingIDWithValidData() {
+        errorManagement.clickErrorManagement();
+        errorManagement.enterErrorCode("ERR00001");
+        errorManagement.clickSearch();
+        errorManagement.verifyListingPageAvailable();
+    }
+
+    @Test(groups = {Categories.ICMS_SMOKE_TEST_CASE, Categories.ICMS_ERRORMANAGEMENT}, description = "Verify the search using ID with the Invalid data")
+    @Description("Verify the search using ID with the valid data")
+    public void verifySearchUsingInvalidID() {
+        errorManagement.clickErrorManagement();
+        errorManagement.enterErrorCode("ERR00001");
+        errorManagement.clickSearch();
+        errorManagement.verifyListingPageNotAvailable();
+    }
+
+    @Test(groups = {Categories.ICMS_SMOKE_TEST_CASE, Categories.ICMS_ERRORMANAGEMENT}, description = "Verify the search Created ")
+    @Description("Verify the search Creator ")
+    public void verifySearchCreated() {
+        errorManagement.clickErrorManagement();
+        errorManagement.clickCreatorInField();
+        errorManagement.clickSearch();
+        errorManagement.verifyCreatedBy("CG01 Automation");
+    }
+
+    @Test(groups = {Categories.ICMS_SMOKE_TEST_CASE, Categories.ICMS_ERRORMANAGEMENT}, description = "Verify by Open already created Error from the listing page")
+    @Description("Verify by Open already created Error from the listing page")
+    public void verifyByOpenAlreadyCreatedErrorListingPage() {
+        errorManagement.clickErrorManagement();
+        errorManagement.openRecentError();
+    }
 }
