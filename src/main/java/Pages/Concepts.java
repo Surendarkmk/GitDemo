@@ -1,6 +1,7 @@
 package Pages;
 
 import base.TestBase;
+import constants.TimeDelay;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,11 +16,11 @@ public class Concepts extends TestBase {
 
     WebDriver driver;
 
-    @FindBy (xpath = "//*[@id=\"side-menu\"]/li[7]/a")
-    WebElement sidebarConcepts;
+    @FindBy(xpath = "//*[contains(text(),'Concepts')]")
+    WebElement concepts;
     @FindBy (xpath = "//*[@id=\"outlined-dense\"]")
     WebElement conceptId;
-    @FindBy (id = "select-name")
+    @FindBy(xpath = "//div[@class='from-meterial-custom-select undefined']")
     WebElement conceptStatus;
     @FindBy (xpath = "(//*[@id=\"outlined-dense\"])[2]")
     WebElement conceptCode;
@@ -31,11 +32,11 @@ public class Concepts extends TestBase {
     WebElement conceptCreatorText;
     @FindBy (xpath = "//*[@id=\"app\"]/div/div[3]/div[2]/div[3]/div/p")
     WebElement conceptSearch;
-    @FindBy (xpath = "//*[@id=\"app\"]/div/div[3]/div[3]/div[1]/div[2]/div/p")
+    @FindBy(className = "concept-new-btn-box")
     WebElement conceptCreate;
     @FindBy (xpath = "//*[@id=\"app\"]/div/div[3]/div[1]/div/div[1]/img")
     WebElement conceptClose;
-    @FindBy (xpath = "//*[@id=\"app\"]/div/div[3]/div[8]")
+    @FindBy(xpath = "//*[@class=\"add-skill-text save-text\"]")
     WebElement saveBtn;
 
     @FindBy (xpath = "//*[@id=\"cke_1_contents\"]/iframe")
@@ -43,7 +44,7 @@ public class Concepts extends TestBase {
     @FindBy (xpath = "//*[@id=\"cke_2_contents\"]/iframe")
     WebElement NewConceptDescription;
 
-    @FindBy (xpath = "(//div[@id='select-name'])[2]")
+    /*@FindBy (xpath = "(//div[@id='select-name'])[2]")
     WebElement conceptType;
     @FindBy (xpath = "(//div[@id='select-name'])[3]")
     WebElement conceptCategory;
@@ -73,10 +74,10 @@ public class Concepts extends TestBase {
     @FindBy (id = "Manipulation")
     WebElement skillManipulation;
     @FindBy (xpath = "(//div[@id='select-name'])[5]")
-    WebElement skill2;
+    WebElement skill2;*/
     @FindBy (xpath = "//div[@class='add-button']")
     WebElement addVideoLinkBtn;
-    @FindBy (xpath = "//*[@id=\"app\"]/div/div[3]/div[7]/div/div/div[2]/div[3]/div[1]/input")
+    @FindBy(xpath = "//div[@class='input']//input")
     WebElement addVideoText;
     @FindBy (xpath = "//div[@class='preview']")
     WebElement videoPreview;
@@ -88,8 +89,8 @@ public class Concepts extends TestBase {
     WebElement StatusActive;
     @FindBy (id = "Inactive")
     WebElement StatusInactive;
-    @FindBy (id = "Draft")
-    WebElement StatusDraft;
+    /*@FindBy (id = "Draft")
+    WebElement StatusDraft;*/
 
     @FindBy (xpath = "//*[@id=\"app\"]/div/div[3]/div[3]/div[2]/div/div[1]/div[2]")
     WebElement conceptListing;
@@ -115,9 +116,9 @@ public class Concepts extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
-    public void openConceptPage(){
-        waitUntillElementVisible(sidebarConcepts);
-        sidebarConcepts.click();
+    public void clickConcept() {
+        waitUntillElementVisible(concepts);
+        concepts.click();
     }
 
     public void conceptSearchId(String id){
@@ -156,7 +157,8 @@ public class Concepts extends TestBase {
     }
 
     public void clkStatus(){
-        waitUntillElementVisible(conceptStatus);
+        delayTime(TimeDelay.TIME_2000S);
+        pageScroleMiddle(driver.findElement(By.xpath("/html/body/div[2]/div/div/div[4]/div[2]/div[2]/div[1]/p")));
         conceptStatus.click();
     }
 
@@ -177,15 +179,6 @@ public class Concepts extends TestBase {
 
     }
 
-    public void selectDraft(){
-        if (driver.findElements(By.id("Draft")).size() != 0){
-            StatusDraft.click();
-        }else {
-            driver.findElement(By.id("draft")).click();
-        }
-
-    }
-
     public void clkCreatorDrop(){
         waitUntillElementVisible(conceptDropdownCreator);
         conceptDropdownCreator.click();
@@ -202,7 +195,6 @@ public class Concepts extends TestBase {
     }
 
     public void clkCreateConcept(){
-
         waitUntillElementVisible(conceptCreate);
         conceptCreate.click();
     }
@@ -213,8 +205,12 @@ public class Concepts extends TestBase {
     }
 
     public void clkSaveBtn(){
-        waitUntillElementVisible(saveBtn);
+        delayTime(TimeDelay.TIME_2000S);
         saveBtn.click();
+    }
+
+    public void clkPreview() {
+        driver.findElement(By.className("add-preview-text")).click();
     }
 
     public void verifyErrorMsg(){
@@ -223,24 +219,47 @@ public class Concepts extends TestBase {
     }
 
     public void enterConceptName() {
+        waitUntillElementVisible(driver.findElement(By.xpath("//*[@id=\"cke_1_contents\"]/iframe")));
         Random objGenerator = new Random();
         for (int iCount = 0; iCount< 1; iCount++) {
             int randomNumber = objGenerator.nextInt(100000000);
             System.out.println("Random No : " + randomNumber);
 
             String CWH = driver.getWindowHandle();
+            try {
+                waitUntillElementVisible(driver.findElement(By.xpath("/html/body/div[2]/div/div/div[4]/div[1]/div/div[4]/div/div/div/div/iframe")));
+            } catch (Exception e) {
+            }
+            driver.findElement(By.id("cke_editor1")).click();
+            waitUntillElementVisible(driver.findElement(By.tagName("iframe")));
             //WebElement iframe = NewConceptName;
             WebElement iframe = driver.findElement(By.tagName("iframe"));
             driver.switchTo().frame(iframe);
             WebElement sat = driver.findElement(By.tagName("body"));
             sat.click();
-            sat.sendKeys("Automation Concept " + randomNumber);
+            sat.sendKeys("New Concept " + randomNumber);
             driver.switchTo().window(CWH);
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException ex) {
             }
         }
+    }
+
+    public void enterConceptDescription() {
+        driver.findElement(By.id("cke_editor2")).click();
+        String CWH = driver.getWindowHandle();
+        delayTime(TimeDelay.TIME_1000S);
+        WebElement iframe = driver.findElement(By.xpath("/html/body/div[2]/div/div/div[4]/div[1]/div/div[4]/div/div/div/div/iframe"));
+        driver.switchTo().frame(iframe);
+        delayTime(TimeDelay.TIME_500S);
+        WebElement sat = driver.findElement(By.tagName("body"));
+        sat.click();
+        sat.sendKeys("Concept Description");
+        driver.switchTo().window(CWH);
+        delayTime(TimeDelay.TIME_2000S);
+
+        //ckEditor(driver.findElement(By.id("cke_editor2")),"Concept Description");
     }
 
     public void enterConcept(){
@@ -258,7 +277,7 @@ public class Concepts extends TestBase {
         }
     }
 
-    public void clkConceptType(){
+    /*public void clkConceptType(){
         waitUntillElementVisible(conceptType);
         conceptType.click();
     }
@@ -326,7 +345,7 @@ public class Concepts extends TestBase {
         addSkill.click();
         waitUntillElementVisible(skillCreativity);
         skillCreativity.click();
-    }
+    }*/
 
     public void clkAddVideoLink(){
         addVideoLinkBtn.click();
@@ -334,6 +353,7 @@ public class Concepts extends TestBase {
 
     public void enterlinkVideo(){
         waitUntillElementVisible(addVideoText);
+        pageScrole(addVideoText);
         addVideoText.sendKeys("https://www.youtube.com/watch?v=EzhjMNUnWdU");
     }
 
@@ -347,7 +367,22 @@ public class Concepts extends TestBase {
         selectVideoLink.click();
     }
 
-    public void timeDelay(){
+    public void verifyConceptName() {
+        driver.findElement(By.id("cke_editor1")).click();
+        String CWH = driver.getWindowHandle();
+        delayTime(TimeDelay.TIME_1000S);
+        WebElement iframe = driver.findElement(By.xpath("//*[@id=\"cke_1_contents\"]/iframe"));
+        driver.switchTo().frame(iframe);
+        delayTime(TimeDelay.TIME_500S);
+        WebElement sat = driver.findElement(By.tagName("body"));
+        sat.click();
+        String conceptName = sat.getText();
+        driver.switchTo().window(CWH);
+        delayTime(TimeDelay.TIME_2000S);
+        System.out.println(conceptName);
+    }
+
+   /* public void timeDelay(){
         try {
             Thread.sleep(2000);
         } catch (InterruptedException ex) {
@@ -358,11 +393,11 @@ public class Concepts extends TestBase {
         waitUntillElementVisible(conceptStatus);
         Assert.assertEquals(conceptStatus.getText(),"inactive");
         timeDelay();
-        waitUntillElementVisible(conceptType);
+       *//* waitUntillElementVisible(conceptType);
         Assert.assertEquals(conceptType.getText(),"Identity");
         timeDelay();
         waitUntillElementVisible(conceptCategory);
-        Assert.assertEquals(conceptCategory.getText(),"Fundamentlal Quantities");
+        Assert.assertEquals(conceptCategory.getText(),"Fundamentlal Quantities");*//*
         timeDelay();
         Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[4]/div/div[2]/textarea")).getText(),"Auto - Error 1");
         timeDelay();
@@ -372,9 +407,9 @@ public class Concepts extends TestBase {
         Assert.assertEquals(youtube,"https://www.youtube.com/watch?v=EzhjMNUnWdU");
         timeDelay();
         Assert.assertEquals(driver.findElement(By.xpath("(//*[@id=\"select-name\"])[4]")).getText(),"Creativity");
-    }
+    }*/
 
-    public void verifyCommonError1(){
+   /* public void verifyCommonError1(){
         Assert.assertEquals(commonError1.getText(),"Auto - Error 1");
     }
 
@@ -391,7 +426,7 @@ public class Concepts extends TestBase {
     public void clkRecentSaved(){
         waitUntillElementVisible(recentSaved);
         recentSaved.click();
-    }
+    }*/
 
     public void verifyErrorConceptName(){
         waitUntillElementVisible(errorConcept);
