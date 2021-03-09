@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="questions.QuestionCreationAllTypes" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-02-18T10:44:56" hostname="Embibes-MacBook-Air-5.local" time="115.842">
+  <properties/>
+  <testcase name="createSubjectiveQuestion" classname="questions.QuestionCreationAllTypes" time="115.842"/>
+  <system-out><![CDATA[3
+12
+Question ID is 20004310
+Difficulty Level present
+Ideal Time Present
+Bloom Level Present
+Primary Concept Present
+Secondary Concept Present
+Question Source Present
+Video Link Present
+Energy
+Topic present
+Physics
+Subject available
+Engineering
+Goals Present
+Engineering
+Units Present
+Engineering
+Exam Field Present
+Engineering
+Chapter Field Present
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 79.0.3945.36 (3582db32b33893869b8c1339e8f4d9ed1816f143-refs/branch-heads/3945@{#614}) on port 13558
+Only local connections are allowed.
+Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
+Feb 18, 2020 4:14:37 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>

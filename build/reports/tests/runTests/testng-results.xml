@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Gradle suite" duration-ms="141588" started-at="2020-02-18T10:44:32Z" finished-at="2020-02-18T10:46:54Z">
+    <groups>
+      <group name="ICMS_QUESTION_CREATION">
+        <method signature="QuestionCreationAllTypes.createAssertionQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createAssertionQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createFillInTheBlanksQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createFillInTheBlanksQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createIntegerQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createIntegerQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createLinkedComprehensionQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createLinkedComprehensionQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMatrixGridQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMatrixGridQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMatrixMatchSingleChoiceQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMatrixMatchSingleChoiceQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMultipleChoiceQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMultipleChoiceQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMultipleDropDownQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMultipleDropDownQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMultipleFillInTheBlanksQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMultipleFillInTheBlanksQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSingleChoiceQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSingleChoiceQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSingleDropDownQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSingleDropDownQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSubjectiveAnswerQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveAnswerQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSubjectiveNumericalQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveNumericalQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSubjectiveQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createTrueFalseQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createTrueFalseQuestion" class="questions.QuestionCreationAllTypes"/>
+      </group> <!-- ICMS_QUESTION_CREATION -->
+      <group name="ICMS_QUESTION">
+        <method signature="QuestionCreationAllTypes.createAssertionQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createAssertionQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createFillInTheBlanksQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createFillInTheBlanksQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createIntegerQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createIntegerQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createLinkedComprehensionQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createLinkedComprehensionQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMatrixGridQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMatrixGridQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMatrixMatchSingleChoiceQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMatrixMatchSingleChoiceQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMultipleChoiceQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMultipleChoiceQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMultipleDropDownQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMultipleDropDownQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMultipleFillInTheBlanksQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMultipleFillInTheBlanksQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSingleChoiceQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSingleChoiceQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSingleDropDownQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSingleDropDownQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSubjectiveAnswerQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveAnswerQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSubjectiveNumericalQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveNumericalQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSubjectiveQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createTrueFalseQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createTrueFalseQuestion" class="questions.QuestionCreationAllTypes"/>
+      </group> <!-- ICMS_QUESTION -->
+      <group name="ICMS_SMOKE_TEST_CASE">
+        <method signature="QuestionCreationAllTypes.createAssertionQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createAssertionQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createFillInTheBlanksQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createFillInTheBlanksQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createIntegerQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createIntegerQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createLinkedComprehensionQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createLinkedComprehensionQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMatrixGridQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMatrixGridQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMatrixMatchSingleChoiceQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMatrixMatchSingleChoiceQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMultipleChoiceQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMultipleChoiceQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMultipleDropDownQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMultipleDropDownQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createMultipleFillInTheBlanksQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createMultipleFillInTheBlanksQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSingleChoiceQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSingleChoiceQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSingleDropDownQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSingleDropDownQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSubjectiveAnswerQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveAnswerQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSubjectiveNumericalQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveNumericalQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createSubjectiveQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveQuestion" class="questions.QuestionCreationAllTypes"/>
+        <method signature="QuestionCreationAllTypes.createTrueFalseQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createTrueFalseQuestion" class="questions.QuestionCreationAllTypes"/>
+      </group> <!-- ICMS_SMOKE_TEST_CASE -->
+    </groups>
+    <test name="Gradle test" duration-ms="141588" started-at="2020-02-18T10:44:32Z" finished-at="2020-02-18T10:46:54Z">
+      <class name="questions.QuestionCreationAllTypes">
+        <test-method status="PASS" signature="open()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="open" is-config="true" duration-ms="22893" started-at="2020-02-18T10:44:32Z" finished-at="2020-02-18T10:44:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- open -->
+        <test-method status="PASS" signature="createSubjectiveQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="createSubjectiveQuestion" duration-ms="115842" started-at="2020-02-18T10:44:56Z" description="Create Subjective Question" finished-at="2020-02-18T10:46:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createSubjectiveQuestion -->
+        <test-method status="PASS" signature="close(org.testng.ITestResult)[pri:0, instance:questions.QuestionCreationAllTypes@41542e01]" name="close" is-config="true" duration-ms="2549" started-at="2020-02-18T10:46:51Z" finished-at="2020-02-18T10:46:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=createSubjectiveQuestion status=SUCCESS method=QuestionCreationAllTypes.createSubjectiveQuestion()[pri:0, instance:questions.QuestionCreationAllTypes@41542e01] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- questions.QuestionCreationAllTypes -->
+    </test> <!-- Gradle test -->
+  </suite> <!-- Gradle suite -->
+</testng-results>
