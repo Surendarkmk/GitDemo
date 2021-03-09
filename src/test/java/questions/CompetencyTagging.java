@@ -16,7 +16,7 @@ public class CompetencyTagging extends TestBase {
         questions.clkQuestionType();
         questions.selectSingleChoiceQuestCreation();
         questions.enterPrimaryConceptCode(prop.getProperty("ConceptCodeWithCompetency"));
-        waitUntilElementClickable(driver.findElement(By.className("primary-competency")));
+        waitUntillElementVisible(driver.findElement(By.className("primary-competency")));
         Assert.assertTrue(driver.findElement(By.className("primary-competency")).isDisplayed());
     }
 

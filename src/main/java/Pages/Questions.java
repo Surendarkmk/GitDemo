@@ -139,25 +139,23 @@ public class Questions extends TestBase {
 
     @Step("Enter Curator Name")
     public void enterCurator(String userName) {
-        driver.findElement(By.xpath("\"//*[@id=\\\"app\\\"]/div/div[3]/div[2]/div[2]/div[5]/div[2]/div/div/div[1]/div[1]")).click(); // Click Curator Drop Down
+        driver.findElement(By.className("metric-field")).click(); // Click Curator Drop Down
         delayTime(TimeDelay.TIME_2000S);
         driver.findElement(By.id("react-select-2-input")).sendKeys(userName); //Enter User Name on the Curator Text Box
         driver.findElement(By.id("react-select-2-input")).sendKeys(Keys.ENTER);
     }
 
     public void verifyListingPage() {
-        Assert.assertTrue(driver.findElement(By.xpath("((//*[@class='rt-tr-group'])[1])")).isDisplayed()); // First Row of the listing page is display
-        delayTime(TimeDelay.TIME_2000S);
+        Assert.assertTrue(driver.findElement(By.xpath("(//*[@class='rt-tbody']//*[@class='rt-tr-group'])")).isDisplayed()); // First Row of the listing page is display
     }
 
     public void waitUntilListDisplay() {
-        waitUntillElementVisible(driver.findElement(By.xpath("((//*[@class='rt-tr-group'])[1])"))); // Wait until First Row of the listing page dispaly
+        waitUntillElementVisible(driver.findElement(By.xpath("//*[@class='rt-table']//*[@class='rt-tbody']"))); // Wait until First Row of the listing page display
     }
 
-    public void verifyNolistingPage() {
-        Assert.assertFalse(driver.findElement(By.className("rt-tbody")).isDisplayed());  // Verify No Data present on the listing page
+    public void verifyNolistAvailable() {
+            Assert.assertFalse(driver.findElements(By.xpath("(//*[@class='rt-tbody']//*[@class='rt-tr-group'])")).isEmpty());// Verify No Data present on the listing page
     }
-
 
     //Question Creation
 
@@ -271,8 +269,8 @@ public class Questions extends TestBase {
 
     @Step("Enter Option Text 2 value")
     public void enterOptionText2(String option22) {
+        pageScroleMiddle(driver.findElement(By.xpath("//*[@id=\"1\"]/div/div[1]/p")));
         if (driver.findElements(By.className("stepwise-solution-container")).isEmpty()) {
-            pageScrole(driver.findElement(By.xpath("//*[@id=\"0\"]/div/div[1]/p")));
         } else {
             System.out.println("No Steps");
         }
@@ -306,7 +304,8 @@ public class Questions extends TestBase {
     @Step("Enter Solution Text 1 value")
     public void enterStepSolutionText1() {
         pageScrole(driver.findElement(By.xpath("//div[@class=\"question-details-text row-block\"]")));
-        ckEditor(driver.findElement(By.xpath("((//div[@class=\"question-details-row-solution-editor-div\"])[1])")), "Solution 1 Text");
+        ckEditor(driver.findElement(By.xpath("((//div[@class=\"question-details-row-solution-editor-div\"])[1])")), "\n" +
+                "Solution 1 Text");
     }
 
     @Step("Enter Solution Text for Matrix Grid")
@@ -371,7 +370,7 @@ public class Questions extends TestBase {
     public void selectDifficultyLevel() {
         pageScrole(driver.findElement(By.xpath("//div[@class=\"question-meta-tags-title-div\"]")));
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
-        int stepSize = (numberSteps.size() * 7) + 3; //StepWise solution contains 7 fields with same ID and 3rd field without Step is Difficulty level.
+        int stepSize = (numberSteps.size()*1) + 3; //StepWise solution contains 7 fields with same ID and 3rd field without Step is Difficulty level.
         String Step = String.valueOf(stepSize);
         System.out.println(Step);
         driver.findElement(By.xpath("((//*[@id=\"mui-component-select-name\"])[" + Step + "])")).click();
@@ -384,16 +383,16 @@ public class Questions extends TestBase {
     @Step("Enter Primary Concept")
     public void enterPrimaryConcept(String conceptName) {
         pageScrole(driver.findElement(By.className("question-meta-tags-title")));
-        driver.findElement(By.xpath("((//button[@value='name'])[1])")).click();
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
-        int stepSize = (numberSteps.size() * 4) + 1; //StepWise solution contains 4 fields with same ID
+        int stepSize = (numberSteps.size() * 2) + 1; //StepWise solution contains 2 fields with same ID
         String Step = String.valueOf(stepSize);
+        driver.findElement(By.xpath("((//button[@value='name'])["+stepSize+"])")).click();
         driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys(conceptName);
         waitUntilElementClickable(primaryConceptList1);
         primaryConceptList1.click();
         delayTime(TimeDelay.TIME_2000S);
         try {
-            driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button/span[1]")).click(); //Click Select after selecting the concept
+            driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div[3]/button/span[1]")).click(); //Click Select after selecting the concept
         } catch (NoSuchElementException e) {
 
         }
@@ -404,28 +403,29 @@ public class Questions extends TestBase {
         pageScrole(driver.findElement(By.className("question-meta-tags-title")));
         driver.findElement(By.xpath("//button[@class=\"MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped\"]")).click(); // Toggle button to select Primary concept Code
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
-        int stepSize = (numberSteps.size() * 4) + 1; //StepWise solution contains 4 fields with same ID
+        int stepSize = (numberSteps.size() * 2) + 1; //StepWise solution contains 4 fields with same ID
         String Step = String.valueOf(stepSize);
         driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys(conceptCode);
         waitUntilElementClickable(primaryConceptList1);
         primaryConceptList1.click();
-        delayTime(TimeDelay.TIME_2000S);
-        waitUntillElementVisible(driver.findElement(By.xpath("//*[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth MuiPaper-rounded']//*[@class='MuiButton-label']")));
-        driver.findElement(By.xpath("//*[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth MuiPaper-rounded']//*[@class='MuiButton-label']")).click(); //Click Select after selecting the concept
+        delayTime(TimeDelay.TIME_4000S);
+        waitUntillElementVisible(driver.findElement(By.xpath("//*[@class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary\"]")));
+        driver.findElement(By.xpath("//*[@class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary\"]")).click(); //Click Select after selecting the concept
     }
 
-    @Step("Enter Secondry Concept")
+    @Step("Enter Secondary Concept")
     public void enterSecondryConcept() {
         pageScrole(driver.findElement(By.className("question-meta-tags-title")));
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
-        int stepSize = (numberSteps.size() * 4) + 2; //StepWise solution contains 4 fields with same ID + 2 second field is Secondary Concept
+        int stepSize = (numberSteps.size() * 2) + 2; //StepWise solution contains 4 fields with same ID + 2 second field is Secondary Concept
         String Step = String.valueOf(stepSize);
         driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys("Kinetic");
         waitUntilElementClickable(SecondryConceptList1);
         SecondryConceptList1.click();
-        delayTime(TimeDelay.TIME_2000S);
-        WebElement secondryConceptSelect = driver.findElement(By.xpath("//*[@class='MuiPaper-root MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthMd MuiDialog-paperFullWidth MuiPaper-rounded']//*[@class='MuiButton-label']"));
-            waitUntilElementClickable(secondryConceptSelect);
+        delayTime(TimeDelay.TIME_4000S);
+        waitUntillElementVisible(driver.findElement(By.xpath("//button[@class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary\"]")));
+        WebElement secondryConceptSelect = driver.findElement(By.xpath("//button[@class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary\"]"));
+            //waitUntilElementClickable(secondryConceptSelect);
             secondryConceptSelect.click(); //Click Select after selecting the concept
     }
 
@@ -434,7 +434,7 @@ public class Questions extends TestBase {
         pageScrole(driver.findElement(By.className("question-meta-tags-title")));
         driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiToggleButton-root MuiToggleButtonGroup-grouped\"])[2])")).click(); // Toogle button to select Secondary concept code
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
-        int stepSize = (numberSteps.size() * 4) + 2; //StepWise solution contains 4 fields with same ID + 2 second field is Secondary Concept
+        int stepSize = (numberSteps.size() * 2) + 2; //StepWise solution contains 4 fields with same ID + 2 second field is Secondary Concept
         String Step = String.valueOf(stepSize);
         driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys(secondaryConceptCode);
         waitUntilElementClickable(SecondryConceptList1);
@@ -483,16 +483,16 @@ public class Questions extends TestBase {
 
     @Step("Enter Ideal Time")
     public void enterIdealTime() {
-        List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
+        /*List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 1) + 2;
-        String Step = String.valueOf(stepSize);
-        driver.findElement(By.xpath("((//*[@id=\"outlined-dense\"])[" + Step + "])")).sendKeys(prop.getProperty("ideal_Time"));
+        String Step = String.valueOf(stepSize);*/
+        driver.findElement(By.xpath("((//*[@id=\"outlined-dense\"])[2])")).sendKeys(prop.getProperty("ideal_Time"));
     }
 
     @Step("Click Bloom level drop down")
     public void clkBloomLevel() {
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
-        int stepSize = (numberSteps.size() * 7) + 4; //StepWise solution contains 7 fields with same ID and 4rd field without Step is Bloom level.
+        int stepSize = (numberSteps.size() * 1) + 4; //StepWise solution contains 7 fields with same ID and 4rd field without Step is Bloom level.
         String Step = String.valueOf(stepSize);
         driver.findElement(By.xpath("((//*[@id=\"mui-component-select-name\"])[" + Step + "])")).click();
     }
@@ -503,15 +503,26 @@ public class Questions extends TestBase {
         RoteLearning.click();
     }
 
+    @Step("Click Skill Drop down and Select")
+    public void SelectSkill() {
+        pageScrole(driver.findElement(By.xpath("//*[@class=\"question-meta-tags-title-div\"]")));
+        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[4])")).click();
+        delayTime(TimeDelay.TIME_2000S);
+        driver.findElement(By.id("react-select-7-option-0")).click();
+        /*List<WebElement>skills = driver.findElement(By.className(" css-11unzgr")).findElements(By.className(" css-yt9ioa-option"));
+        System.out.println(skills.size());
+        skills.get(1).click();*/
+    }
+
     @Step("Click Question Source Drop and Select 2004 type")
     public void SelectQuestionSource() {
         pageScrole(driver.findElement(By.xpath("//*[@class=\"question-meta-tags-title-div\"]")));
-        List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
-        int stepSize = (numberSteps.size() * 2) + 4; //StepWise solution contains 2 fields with same ID and 4rd field without Step is Question Source.
-        String Step = String.valueOf(stepSize);
-        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[" + Step + "])")).click();
+        /*List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
+        int stepSize = (numberSteps.size() * 2) + 5; //StepWise solution contains 2 fields with same ID and 4rd field without Step is Question Source.
+        String Step = String.valueOf(stepSize);*/
+        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[5])")).click();
         delayTime(TimeDelay.TIME_2000S);
-        driver.findElement(By.id("react-select-7-option-0")).click(); // Select 2004 question
+        driver.findElement(By.id("react-select-8-option-0")).click(); // Select 2004 question
     }
 
     @Step("Click Add video Link Button")
@@ -538,14 +549,17 @@ public class Questions extends TestBase {
 
     @Step("Click SELECT on video link ")
     public void clkSelectVideoLink() {
+        List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
+        int stepSize = (numberSteps.size() * 1) + 1;
         delayTime(TimeDelay.TIME_2000S);
+        pageScroleMiddle(driver.findElement(By.xpath("((//div[@class='video-solution-label'])["+stepSize+"])")));
         confirmVideoLink.click();
     }
 
     @Step("Enter Topic")
     public void enterTopic(String Topic) {
         List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
-        int stepSize = (numberSteps.size() * 4) + 3; //StepWise solution contains 4 fields with same ID
+        int stepSize = (numberSteps.size() * 2) + 3; //StepWise solution contains 4 fields with same ID
         String Step = String.valueOf(stepSize);
         driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys(Topic);
     }
@@ -621,8 +635,8 @@ public class Questions extends TestBase {
 
     @Step("Click Save Button")
     public void clkSaveBtn() {
-        pageScrole(driver.findElement(By.className("question-learning-maps-title-div")));
-        delayTime(TimeDelay.TIME_2000S);
+        pageScrole(driver.findElement(By.className("learning_questionLearningMapsTitleDiv__2zbr3")));
+        delayTime(TimeDelay.TIME_1000S);
         driver.findElement(By.xpath("//div[@class='footer-add-choice-button-save']")).click(); // Click Save Button
         delayTime(TimeDelay.TIME_3000S);
     }
@@ -756,6 +770,7 @@ public class Questions extends TestBase {
         enterOptionText4(prop.getProperty("option4"));
     }
 
+
     public void linkedComprehensionAssociateQuestions() {
         AssociateQuestionsTextBoxLinkedComprehension.sendKeys(prop.getProperty("linkedComprehensionAssociateQuestionsId1"));
         delayTime(TimeDelay.TIME_1000S);
@@ -792,31 +807,39 @@ public class Questions extends TestBase {
     // Book Meta Tag
     public void BookMetaTags() {
         delayTime(TimeDelay.TIME_2000S);
-        pageScrole(driver.findElement(By.xpath("//*[contains(text(),'Book Meta Tags')]")));
+        pageScroleMiddle(driver.findElement(By.xpath("//*[contains(text(),'Book Meta Tags')]")));
         delayTime(TimeDelay.TIME_1000S);
         clkBookType();
         delayTime(TimeDelay.TIME_1000S);
-        driver.findElement(By.id("react-select-5-option-2")).click(); // Select Book
-        delayTime(TimeDelay.TIME_1000S);
+        //driver.findElement(By.id("react-select-6-option-0")).click(); // Select Book
+        driver.findElement(By.xpath("//*[contains(text(),'Book Name')]")).click();
         clkBookSelection();
         delayTime(TimeDelay.TIME_1000S);
-        driver.findElement(By.id("react-select-6-option-0")).click();
-        delayTime(TimeDelay.TIME_1000S);
+        /*driver.findElement(By.id("react-select-6-option-0")).click();
+        delayTime(TimeDelay.TIME_1000S);*/
         driver.findElement(By.xpath("//div[@class='add-tag-button']")).click(); // Click on Add Tag Button
     }
 
     public void clkBookType() {
-        List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
+        /*List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 2) + 3; //StepWise solution contains 2 fields with same class name and 3rd field without Step is Book type.
-        String Step = String.valueOf(stepSize);
-        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[" + Step + "])")).click();
+        String Step = String.valueOf(stepSize);*/
+        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[3])")).click();
+        delayTime(TimeDelay.TIME_2000S);
     }
 
     public void clkBookSelection() {
-        List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
+        /*List<WebElement> numberSteps = driver.findElement(By.xpath("//div[@class=\"question-details\"]")).findElements(By.className("stepwise-solution-container"));
         int stepSize = (numberSteps.size() * 2) + 4; //StepWise solution contains 2 fields with same class name and 3rd field without Step is Book type.
-        String Step = String.valueOf(stepSize);
-        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[" + Step + "])")).click();
+        String Step = String.valueOf(stepSize);*/
+        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[4])")).click();
+        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[4]//*[contains(@id,'react-select')])")).sendKeys("Automation");
+        delayTime(TimeDelay.TIME_3000S);
+        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[4]//*[contains(@id,'react-select')])")).sendKeys(Keys.ENTER);
+        /*driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[" + Step + "])")).sendKeys("Automation");
+        driver.findElement(By.xpath("((//*[@class=\" css-2b097c-container\"])[" + Step + "])")).sendKeys(Keys.ENTER);*/
+        //driver.findElement(By.xpath("//*[@id=\"react-select-15-input\"]")).sendKeys("Automation");
+        //driver.findElement(By.xpath("//*[@id=\"react-select-15-input\"]")).sendKeys(Keys.ENTER);
     }
 
     // Question Meta
@@ -828,6 +851,8 @@ public class Questions extends TestBase {
         clkBloomLevel();
         delayTime(TimeDelay.TIME_1000S);
         selectBloomLevel();
+        delayTime(TimeDelay.TIME_1000S);
+        SelectSkill();
         delayTime(TimeDelay.TIME_1000S);
         enterPrimaryConcept(prop.getProperty("ConceptName"));
         enterSecondryConcept();
@@ -1088,8 +1113,9 @@ public class Questions extends TestBase {
 
     @Step("Verify Question ID")
     public void verifyQuestionIDfield() {
+        waitUntillElementVisible(driver.findElement(By.xpath("//*[@class='key-attribute-textfield']")));
         WebElement questionID = driver.findElement(By.xpath("//*[@class='key-attribute-textfield']"));
-        waitUntillElementVisible(questionID);
+        //waitUntillElementVisible(questionID);
         pageScrole(driver.findElement(By.className("key-attributes-title-div")));
         String ID = questionID.getAttribute("value");
         if (ID.isEmpty()) {
@@ -1259,14 +1285,14 @@ public class Questions extends TestBase {
             driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[1])")).click(); // select META TAGS TAB
         }
         if (noOfStep == 2) {
-            pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[3]/div[5]/div[1]/div/div[4]/div/div[5]/div[2]/div/p")));
-            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[5])")).click();
+            pageScroleMiddle(driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[4])")));
+            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[4])")).click();
         }
         if (noOfStep == 3) {
-            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[9])")).click();
+            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[7])")).click();
         }
         if (noOfStep == 4) {
-            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[13])")).click();
+            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[10])")).click();
         }
         delayTime(TimeDelay.TIME_1000S);
     }
@@ -1276,22 +1302,22 @@ public class Questions extends TestBase {
 
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
         if (noOfStep == 1) {
-            int stepSize = (noOfStep * 0) + 2;
+            int stepSize = 2;
             String Step = String.valueOf(stepSize);
             driver.findElement(By.xpath("((//*[@id=\"mui-component-select-name\"])[" + Step + "])")).click();
         }
         if (noOfStep == 2) {
-            int stepSize = 9;
+            int stepSize = 3;
             String Step = String.valueOf(stepSize);
             driver.findElement(By.xpath("((//*[@id=\"mui-component-select-name\"])[" + Step + "])")).click();
         }
         if (noOfStep == 3) {
-            int stepSize = 16;
+            int stepSize = 4;
             String Step = String.valueOf(stepSize);
             driver.findElement(By.xpath("((//*[@id=\"mui-component-select-name\"])[" + Step + "])")).click();
         }
         if (noOfStep == 4) {
-            int stepSize = 23;
+            int stepSize = 5;
             String Step = String.valueOf(stepSize);
             driver.findElement(By.xpath("((//*[@id=\"mui-component-select-name\"])[" + Step + "])")).click();
         }
@@ -1322,37 +1348,34 @@ public class Questions extends TestBase {
 
     @Step("Enter Primary Concept on Steps")
     public void enterPrimaryConceptOnStepNumber(String stepNumber, String conceptName) {
-        pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
+        //pageScrole(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[5]/div/div[2]/div[2]")));
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
-        int stepSize = ((noOfStep - 1) * 4) + 1;
+        int stepSize = ((noOfStep-1) * 2) + 1;
         String Step = String.valueOf(stepSize);
+        pageScroleMiddle(driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")));
         driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys(conceptName);
         waitUntilElementClickable(primaryConceptList1);
         primaryConceptList1.click();
-        delayTime(TimeDelay.TIME_2000S);
-        try {
-            driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button/span[1]")).click(); //Click Select after selecting the concept
-        } catch (NoSuchElementException e) {
-
-        }
+        delayTime(TimeDelay.TIME_5000S);
+        //waitUntillElementVisible(driver.findElement(By.xpath("//*[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary']")));
+        driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button")).click();
+        //driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button/span[1]")).click(); //Click Select after selecting the concept
     }
 
     @Step("Enter Secondry Concept on Steps")
     public void enterSecondryConceptOnStepNumber(String stepNumber) {
-        pageScrole(createStepButton);
+        //pageScrole(createStepButton);
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
-        int stepSize = ((noOfStep - 1) * 4) + 2;
+        int stepSize = ((noOfStep-1) * 2) + 2;
         String Step = String.valueOf(stepSize);
+        pageScroleMiddle(driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")));
         driver.findElement(By.xpath("((//*[@id=\"downshift-simple-input\"])[" + Step + "])")).sendKeys("Kinetic");
         waitUntilElementClickable(SecondryConceptList1);
         SecondryConceptList1.click();
-        delayTime(TimeDelay.TIME_2000S);
-        try {
-            WebElement secondryConceptSelect = driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button/span[1]"));
-            waitUntilElementClickable(secondryConceptSelect);
+        delayTime(TimeDelay.TIME_5000S);
+            WebElement secondryConceptSelect = driver.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[3]/button"));
+            //waitUntillElementVisible(secondryConceptSelect);
             secondryConceptSelect.click(); //Click Select after selecting the concept
-        } catch (NoSuchElementException e) {
-        }
     }
 
     @Step("Enter Ideal Time on Steps")
@@ -1431,13 +1454,13 @@ public class Questions extends TestBase {
         selectDifficultyLevelOnStep(stepNumber);
         enterPrimaryConceptOnStepNumber(stepNumber, conceptName);
         enterSecondryConceptOnStepNumber(stepNumber);
-        enterIdealTimeOnStepNumber(stepNumber);
-        clkBloomLevelOnStepNumber(stepNumber);
-        SelectQuestionSourceOnStepNumber(stepNumber);
+        //enterIdealTimeOnStepNumber(stepNumber);
+        //clkBloomLevelOnStepNumber(stepNumber);
+        //SelectQuestionSourceOnStepNumber(stepNumber);
         addVideoLink(stepNumber);
     }
 
-    public void clkLearningMapOnStepNumber(String stepNumber) {
+    /*public void clkLearningMapOnStepNumber(String stepNumber) {
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
         if (noOfStep == 1) {
             delayTime(TimeDelay.TIME_2000S);
@@ -1455,9 +1478,9 @@ public class Questions extends TestBase {
             driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[12])")).click();
         }
         delayTime(TimeDelay.TIME_1000S);
-    }
+    }*/
 
-    @Step("Enter Topic Name on Steps")
+   /* @Step("Enter Topic Name on Steps")
     public void enterTopicOnStepNumber(String stepNumber) {
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
         int stepSize = ((noOfStep - 1) * 4) + 3;
@@ -1469,9 +1492,9 @@ public class Questions extends TestBase {
         driver.findElement(By.id("topic-checkbox-" + targetClassName)).click();
         delayTime(TimeDelay.TIME_1000S);
         ClkDoneQuestionLearningMap();
-    }
+    }*/
 
-    public void clkHintsOnStepNumber(String stepNumber) {
+    /*public void clkHintsOnStepNumber(String stepNumber) {
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
         if (noOfStep == 1) {
             delayTime(TimeDelay.TIME_2000S);
@@ -1489,9 +1512,9 @@ public class Questions extends TestBase {
             driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[13])")).click();
         }
         delayTime(TimeDelay.TIME_1000S);
-    }
+    }*/
 
-    @Step("Enter Hints on Step")
+    /*@Step("Enter Hints on Step")
     public void enterHintsOnStep(String stepNumber) {
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
         if (noOfStep == 1) {
@@ -1506,21 +1529,23 @@ public class Questions extends TestBase {
         if (noOfStep == 4) {
             ckEditor(driver.findElement(By.xpath("//*[@id=\"app\"]/div/div[3]/div[3]/div[5]/div[" + stepNumber + "]/div/div[5]/div/div[2]")), "Step 4 Hint");
         }
-    }
+    }*/
 
     public void clkMarksOnStepNumber(String stepNumber) {
         int noOfStep = java.lang.Integer.parseInt(stepNumber);
         if (noOfStep == 1) {
-            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[4])")).click();
+            pageScroleMiddle(driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[3])")));
+            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[3])")).click();
         }
         if (noOfStep == 2) {
-            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[8])")).click();
+            pageScroleMiddle(driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[6])")));
+            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[6])")).click();
         }
         if (noOfStep == 3) {
-            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[12])")).click();
+            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[9])")).click();
         }
         if (noOfStep == 4) {
-            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[14])")).click();
+            driver.findElement(By.xpath("((//button[@class=\"MuiButtonBase-root MuiTab-root MuiTab-textColorInherit\"])[12])")).click();
         }
         delayTime(TimeDelay.TIME_1000S);
     }

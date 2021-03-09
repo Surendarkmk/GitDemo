@@ -32,7 +32,7 @@ public class TestInstructions extends TestBase {
 
         objinstructions.clkInstructions();
         objinstructions.verifyListingPage();
-        objinstructions.instructionSearchName("Test");
+        objinstructions.instructionSearchName("Testing");
         objinstructions.clkSearch();
         objinstructions.verifyListingPage();
 

@@ -92,7 +92,7 @@ public class AuthorCreation extends TestBase {
     public void verifyAuthorSearchUsingName() {
         authors.clkAuthors();
         authors.verifyAuthorListingPage();
-        authors.searchUsingName("Author 1");
+        authors.searchUsingName("Author 12");
         authors.clkSearchButton();
         Assert.assertTrue(driver.findElement(By.xpath("//a[@href='/authors/100/edit']")).isDisplayed());
     }

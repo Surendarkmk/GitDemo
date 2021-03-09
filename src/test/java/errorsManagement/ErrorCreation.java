@@ -13,17 +13,19 @@ public class ErrorCreation extends TestBase {
     @Description("Verify by creating new error for questions")
     public void verifyByCreatingNewError() {
         errorManagement.clickErrorManagement();
-        errorManagement.clickCreateNewError();
-        errorManagement.enterErrorName("New Error - Test Automation");
-        errorManagement.clickContentTypeDropDown();
-        errorManagement.enterErrorDescription("Error Description - Test Automation");
-        errorManagement.clickSubSectionDropDown();
-        errorManagement.clickErrorTypeDropDown();
-        errorManagement.clickErrorMultiplierDropDown();
-        errorManagement.clickErrorSeverityDropDown();
-        errorManagement.enterErrorDeduction("5");
-        errorManagement.enterErrorMaxDeduction("10");
-        errorManagement.clickSaveNewError();
+        for (int i=1; i<=10; i++){
+            errorManagement.clickCreateNewError();
+            errorManagement.enterErrorName("New Error - Testing Automation");
+            errorManagement.clickContentTypeDropDown();
+            errorManagement.enterErrorDescription("Error Description - Testing Automation");
+            errorManagement.clickSubSectionDropDown();
+            errorManagement.clickErrorTypeDropDown();
+            errorManagement.clickErrorMultiplierDropDown();
+            errorManagement.clickErrorSeverityDropDown();
+            errorManagement.enterErrorDeduction("5");
+            errorManagement.enterErrorMaxDeduction("10");
+            errorManagement.clickSaveNewError();
+        }
     }
 
     @Test(groups = {Categories.ICMS_SMOKE_TEST_CASE, Categories.ICMS_ERRORMANAGEMENT}, description = "Verify by clicking on the error management in the side bar")

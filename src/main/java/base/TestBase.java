@@ -40,14 +40,15 @@ public class TestBase {
     public static Properties format;
     public Login objlogin;
     public Instructions objinstructions;
-    public Concepts objconcepts;
+    public Concepts concepts;
     public QuestionGeneration objquestgen;
-    public TestFormat objtestformat;
+    public TestFormat testformat;
     public Authors authors;
     public Publications publications;
     public TestCreation testcreation;
     protected Questions questions;
     public Books books;
+    public ErrorManagement errorManagement;
     private Local local;
     private Instant wait;
 
@@ -156,7 +157,7 @@ public class TestBase {
         driver = new ChromeDriver();
         //WebDriverManager.firefoxdriver().setup();
         //driver = new FirefoxDriver();
-        String BaseUrl = "https://new-content-admin-staging.embibe.com/";
+        String BaseUrl = "https://new-content-admin-dev.embibe.com/";
         driver.get(BaseUrl);
         driver.manage().window().maximize();
     }
@@ -182,12 +183,12 @@ public class TestBase {
         driver.findElement(By.xpath("//*[@id=\"page-wrapper\"]/div[1]/nav/ul/li/ul/li[6]")).click();
     }
 
-    @BeforeMethod(alwaysRun = true)
+    //@BeforeMethod(alwaysRun = true)
     public void open() {
         setup();
     }
 
-    @AfterMethod(alwaysRun = true)
+    //@AfterMethod(alwaysRun = true)
     public void close(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             screenshot(driver);
@@ -203,15 +204,16 @@ public class TestBase {
         objinstructions = new Instructions(driver);
         objlogin = new Login(driver);
         questions = new Questions(driver);
-        objconcepts = new Concepts(driver);
-        objtestformat = new TestFormat(driver);
+        concepts = new Concepts(driver);
+        testformat = new TestFormat(driver);
         authors = new Authors(driver);
         publications = new Publications(driver);
         testcreation = new TestCreation(driver);
         books = new Books(driver);
+        errorManagement = new ErrorManagement(driver);
         objlogin.clickSignIn();
         objlogin.clearUsernamePassword();
-        objlogin.setUsernamePassword("CGautomation01@gmail.com", "embibe1234");
+        objlogin.setUsernamePassword("CGautomation02@gmail.com", "embibe1234");
         objlogin.clickLogin();
         delayTime(TimeDelay.TIME_5000S);
     }
@@ -298,8 +300,7 @@ public class TestBase {
         delayTime(TimeDelay.TIME_2000S);
     }
 
-    public void ckEditor1(WebElement element, String enterText) {
-        element.click();
+    public void ckEditor1(String enterText) {
         delayTime(TimeDelay.TIME_1000S);
         String option1 = driver.getWindowHandle();
         WebElement iframe = driver.findElement(By.tagName("iframe"));

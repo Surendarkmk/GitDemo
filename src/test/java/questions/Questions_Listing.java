@@ -17,7 +17,7 @@ public class Questions_Listing extends TestBase {
     public void searchValidQuestionId() {
         questions.clkQuestions();
         questions.waitUntilListDisplay();
-        questions.questionId("10007162"); //Valid Question ID
+        questions.questionId("20002198"); //Valid Question ID
         questions.clickSearch();
         questions.waitUntilListDisplay();
         questions.verifyListingPage();
@@ -31,18 +31,19 @@ public class Questions_Listing extends TestBase {
         questions.questionId("12467598565467890"); //InValid Question ID
         questions.clickSearch();
         delayTime(TimeDelay.TIME_4000S);
-        questions.verifyNolistingPage();
+        questions.verifyNolistAvailable();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION_LISTING, Categories.ICMS_QUESTION}, description = "Verify user should be able to search the question using Valid Question Code")
+    @Test(groups = {Categories.ICMS_QUESTION_LISTING, Categories.ICMS_QUESTION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should be able to search the question using Valid Question Code")
     @Description("Verify user should be able to search the question using Valid Question Code")
     public void SearchValidQuestionCode() {
 
         questions.clkQuestions();
         questions.waitUntilListDisplay();
-        questions.questionCode("EM10007162"); ////Valid Question Code
+        questions.questionCode("EM20002198-"); ////Valid Question Code
         questions.clickSearch();
         questions.waitUntilListDisplay();
+        delayTime(TimeDelay.TIME_5000S);
         questions.verifyListingPage();
 
     }
@@ -55,12 +56,12 @@ public class Questions_Listing extends TestBase {
         questions.waitUntilListDisplay();
         questions.questionCode("1246757"); //InValid Question Code
         questions.clickSearch();
-        delayTime(TimeDelay.TIME_10000S);
-        questions.verifyNolistingPage();
+        delayTime(TimeDelay.TIME_5000S);
+        questions.verifyNolistAvailable();
 
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION_LISTING, Categories.ICMS_QUESTION}, description = "Verify user should be able to search according to Question Type applied.")
+    @Test(groups = {Categories.ICMS_QUESTION_LISTING, Categories.ICMS_QUESTION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should be able to search according to Question Type applied.")
     @Description("Verify user should be able to search according to Question Type applied.")
     public void SearchAllQuestionType() {
 
@@ -70,7 +71,7 @@ public class Questions_Listing extends TestBase {
 
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION_LISTING, Categories.ICMS_QUESTION}, description = "Verify user should be able to search accoring to the Status of the question")
+    @Test(groups = {Categories.ICMS_QUESTION_LISTING, Categories.ICMS_QUESTION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should be able to search accoring to the Status of the question")
     @Description("Verify user should be able to search according to the Status of the question")
     public void SearchUsingAllStatus() {
 
@@ -95,7 +96,7 @@ public class Questions_Listing extends TestBase {
 
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION_LISTING, Categories.ICMS_QUESTION}, description = "Verify user should be able to search accoring to the Curator of the question")
+    @Test(groups = {Categories.ICMS_QUESTION_LISTING, Categories.ICMS_QUESTION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should be able to search accoring to the Curator of the question")
     @Description("Verify user should be able to search according to the Curator of the question")
     public void SearchByCurator() {
 
@@ -104,6 +105,7 @@ public class Questions_Listing extends TestBase {
         questions.enterCurator(prop.getProperty("UserName"));
         questions.clickSearch();
         questions.waitUntilListDisplay();
+        delayTime(TimeDelay.TIME_3000S);
         questions.verifyListingPage();
 
     }

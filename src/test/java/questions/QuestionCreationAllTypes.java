@@ -15,17 +15,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectSingleChoiceQuestCreation();
         questions.singleChoiceQuestionDetails();
-        questions.BookMetaTags();
+        //   questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //     questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //   questions.verifyQuestionLearningMaps();
     }
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Create Multiple Choice Question")
@@ -37,17 +37,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectMultiChoiceQuestCreation();
         questions.multiChoiceQuestionDetails();
-        questions.BookMetaTags();
+        //    questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //   questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //  questions.verifyQuestionLearningMaps();
 
     }
 
@@ -60,17 +60,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectMatrixMatchSingleChoiceQuestCreation();
         questions.singleChoiceQuestionDetails();
-        questions.BookMetaTags();
+        //   questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //    questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //    questions.verifyQuestionLearningMaps();
 
     }
 
@@ -83,17 +83,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectTrueFalsQuestCreation();
         questions.TrueFalseQuestionDetails();
-        questions.BookMetaTags();
+        //  questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //   questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //    questions.verifyQuestionLearningMaps();
 
     }
 
@@ -106,17 +106,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectIntegerQuestCreation();
         questions.intergerQuestionDetails();
-        questions.BookMetaTags();
+        //   questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //    questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //     questions.verifyQuestionLearningMaps();
 
     }
 
@@ -129,17 +129,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectSubjectiveNumericalQuestCreation();
         questions.subjectiveNumericalQuestionDetails();
-        questions.BookMetaTags();
+        //  questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //      questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //    questions.verifyQuestionLearningMaps();
 
     }
 
@@ -152,17 +152,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectSubjectiveAnswerQuestCreation();
         questions.subjectiveAnswerDetails();
-        questions.BookMetaTags();
+        //  questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //  questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //  questions.verifyQuestionLearningMaps();
 
     }
 
@@ -175,17 +175,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectAssertionQuestCreation();
         questions.assertionQuestionDetails();
-        questions.BookMetaTags();
+        //  questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //questions.verifyQuestionLearningMaps();
 
     }
 
@@ -198,17 +198,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectFillInTheBlanks();
         questions.fillInTheBlanksQuestionDetails();
-        questions.BookMetaTags();
+        //  questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //questions.verifyQuestionLearningMaps();
 
     }
 
@@ -221,17 +221,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectMultipleFillInTheBlanks();
         questions.multipleFillInTheBlanksQuestionDetails();
-        questions.BookMetaTags();
+        //   questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        //questions.verifyQuestionLearningMaps();
 
     }
 
@@ -244,17 +244,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectSingleDropDown();
         questions.singleChoiceQuestionDetails();
-        questions.BookMetaTags();
+        //  questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        // questions.verifyQuestionLearningMaps();
 
     }
 
@@ -267,17 +267,17 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.clkQuestionType();
         questions.selectSubjective();
         questions.subjectiveQuestionDetails();
-        questions.BookMetaTags();
+        //  questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        //  questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        // questions.verifyQuestionLearningMaps();
 
     }
 
@@ -291,9 +291,9 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.selectLinkedComprehension();
         questions.linkedComprehensionQuestionDetails();
         questions.linkedComprehensionAssociateQuestions();
-        questions.BookMetaTags();
+        //  questions.BookMetaTags();
         questions.enterHints1();
-        questions.questionsMetaTag1();
+        // questions.questionsMetaTag1();
         questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
@@ -301,11 +301,11 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        // questions.verifyQuestionLearningMaps();
 
     }
-
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Create Multiple Drop Down Question")
+/*
+    @Testing(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Create Multiple Drop Down Question")
     @Description("Create Multiple Drop Down Question")
     public void createMultipleDropDownQuestion() {
         questions.clkQuestions();
@@ -324,7 +324,7 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
         questions.verifyQuestionLearningMaps();
-    }
+    }*/
 
     @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SMOKE_TEST_CASE}, description = "Create Matrix Gride Question")
     @Description("Create Matrix Gride Question")
@@ -337,16 +337,16 @@ public class QuestionCreationAllTypes extends TestBase {
         questions.enterRowsandColumnsInMatrixGrid("4", "4");
         questions.selectCorrectAnswerMatrixGrid();
         questions.enterSolutionTextForMatrixGrid();
-        questions.BookMetaTags();
+        //  questions.BookMetaTags();
         questions.enterHints1();
         questions.questionsMetaTag1();
-        questions.QuestionLearningMaps();
+        // questions.QuestionLearningMaps();
         questions.clkSaveBtn();
         questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.verifyBookMetaTags();
         questions.verifyQuestionMetaDetails();
         questions.verifyVideoSolutionForSavedQuestion();
-        questions.verifyQuestionLearningMaps();
+        // questions.verifyQuestionLearningMaps();
     }
 }

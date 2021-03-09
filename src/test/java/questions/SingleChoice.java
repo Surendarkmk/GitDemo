@@ -28,7 +28,7 @@ public class SingleChoice extends TestBase {
         questions.verifyQuestionLearningMaps();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify by default Curator name appears in the curator text box.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify by default Curator name appears in the curator text box.")
     @Description("Verify by default Curator name appears in the curator text box.")
     public void defaultCuratorNameAppearsInTheCuratorTextBox() {
         questions.clkQuestions();
@@ -39,7 +39,7 @@ public class SingleChoice extends TestBase {
         questions.verifyCuratorName();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user is  able to enter the question text under the Question Details.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify user is  able to enter the question text under the Question Details.")
     @Description("Verify user is  able to enter the question text under the Question Details.")
     public void enterQuestionTextUnderQuestionDetails() {
         questions.clkQuestions();
@@ -50,7 +50,7 @@ public class SingleChoice extends TestBase {
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to enter the option under option and mark it correct/incorrect")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify user should be able to enter the option under option and mark it correct/incorrect")
     @Description("Verify user should be able to enter the option under option and mark it correct/incorrect")
     public void enterOptionUnderOptionAndMarkItCorrectOrIncorrect() {
         questions.clkQuestions();
@@ -64,7 +64,7 @@ public class SingleChoice extends TestBase {
         questions.selectCorrectOption1();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should not be able to save the question until the solution is provided for the question.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should not be able to save the question until the solution is provided for the question.")
     @Description("Verify user should not be able to save the question until the solution is provided for the question.")
     public void userShouldNotAbleToSaveTheQuestionWithoutSolution() {
         questions.clkQuestions();
@@ -81,7 +81,7 @@ public class SingleChoice extends TestBase {
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithoutSolution"));
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should not be able to save the question until the Answer Option is provided for the question.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should not be able to save the question until the Answer Option is provided for the question.")
     @Description("Verify user should not be able to save the question until the Answer Option is provided for the question.")
     public void verifyUserShouldNotAbleToSaveQuestionUntilAnswerOptionProvided() {
         questions.clkQuestions();
@@ -97,7 +97,7 @@ public class SingleChoice extends TestBase {
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithoutAnswerOption"));
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to select the question Meta Tags, under create question.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify user should be able to select the question Meta Tags, under create question.")
     @Description("Verify user should be able to select the question Meta Tags, under create question.")
     public void ableToSelectQuestionMetaTags() {
         questions.clkQuestions();
@@ -109,7 +109,7 @@ public class SingleChoice extends TestBase {
         questions.verifyQuestionMetaDetails();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to Search and Select the concept using concept code")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should be able to Search and Select the concept using concept code")
     @Description("Verify user should be able to Search and Select the concept using concept code")
     public void ableToSearchAndSelectConceptUsingConceptCode() {
         questions.clkQuestions();
@@ -123,7 +123,7 @@ public class SingleChoice extends TestBase {
         questions.verifySecondaryConcept();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to add multiple secondary concept under Question Meta Tag.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify user should be able to add multiple secondary concept under Question Meta Tag.")
     @Description("Verify user should be able to add multiple secondary concept under Question Meta Tag.")
     public void ableToAddMultipleSecondaryConceptQuestionMetaTag() {
         questions.clkQuestions();
@@ -139,7 +139,7 @@ public class SingleChoice extends TestBase {
         questions.clkSaveBtn();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to remove the secondary concept added, and the latest secondary concept should be removed under question meta tag.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify user should be able to remove the secondary concept added, and the latest secondary concept should be removed under question meta tag.")
     @Description("Verify user should be able to remove the secondary concept added, and the latest secondary concept should be removed under question meta tag.")
     public void ableToRemoveSecondaryConceptAdded() {
         questions.clkQuestions();
@@ -154,7 +154,7 @@ public class SingleChoice extends TestBase {
         questions.removeSecondaryConcept();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to save the question without Hint, under question meta tag.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should be able to save the question without Hint, under question meta tag.")
     @Description("Verify user should be able to save the question without Hint, under question meta tag.")
     public void ableToSaveTheQuestionWithoutHint() {
         questions.clkQuestions();
@@ -163,9 +163,11 @@ public class SingleChoice extends TestBase {
         questions.selectSingleChoiceQuestCreation();
         questions.singleChoiceQuestionDetails();
         questions.clkSaveBtn();
+        questions.verifyAnyErrorMessageWhileSave();
+        questions.verifyQuestionIDfield();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to add hint to the question , under question meta tag.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify user should be able to add hint to the question , under question meta tag.")
     @Description("Verify user should be able to add hint to the question , under question meta tag.")
     public void ableToAddHintToQuestion() {
         questions.clkQuestions();
@@ -175,9 +177,11 @@ public class SingleChoice extends TestBase {
         questions.singleChoiceQuestionDetails();
         questions.enterHints1();
         questions.clkSaveBtn();
+        questions.verifyAnyErrorMessageWhileSave();
+        questions.verifyQuestionIDfield();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to add multiple hint for the questions.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify user should be able to add multiple hint for the questions.")
     @Description("Verify user should be able to add multiple hint for the questions.")
     public void ableToAddMultipleHintForQuestions() {
         questions.clkQuestions();
@@ -188,9 +192,11 @@ public class SingleChoice extends TestBase {
         questions.enterHints1();
         questions.enterHint2();
         questions.clkSaveBtn();
+        questions.verifyAnyErrorMessageWhileSave();
+        questions.verifyQuestionIDfield();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify validation message appears if user save the question with blank hint.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify validation message appears if user save the question with blank hint.")
     @Description("Verify validation message appears if user save the question with blank hint.")
     public void verifyValidationMessageSaveQuestionWithBlankHint() {
         questions.clkQuestions();
@@ -203,7 +209,7 @@ public class SingleChoice extends TestBase {
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithBlankHint"));
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to add a video under video solution.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should be able to add a video under video solution.")
     @Description("Verify user should be able to add a video under video solution.")
     public void ableToAddVideoUnderVideoSolution() {
         questions.clkQuestions();
@@ -217,7 +223,7 @@ public class SingleChoice extends TestBase {
         questions.clkSelectVideoLink();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify validation message appear when user load a invalid video.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify validation message appear when user load a invalid video.")
     @Description("Verify validation message appear when user load a invalid video.")
     public void validateMessageAppearWhenLoadInvalidVideo() {
         questions.clkQuestions();
@@ -231,7 +237,7 @@ public class SingleChoice extends TestBase {
         questions.verifyInvalidLinkOnVideoSolution();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to save question without video.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify user should be able to save question without video.")
     @Description("Verify user should be able to save question without video.")
     public void userShouldAbleToSaveQuestionWithoutVideo() {
         questions.clkQuestions();
@@ -248,7 +254,7 @@ public class SingleChoice extends TestBase {
         questions.verifyVideoSolutionForSavedQuestion();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify when user search topic and clicks on Done, then all the text box under Question learning maps is autofilled with correct data.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify when user search topic and clicks on Done, then all the text box under Question learning maps is autofilled with correct data.")
     @Description("Verify when user search topic and clicks on Done, then all the text box under Question learning maps is autofilled with correct data.")
     public void searchTopicAndClicksDoneVerifyAllTextBoxIsAutofilled() {
         questions.clkQuestions();
@@ -258,11 +264,12 @@ public class SingleChoice extends TestBase {
         questions.singleChoiceQuestionDetails();
         questions.QuestionLearningMaps();
         questions.clkSaveBtn();
-        delayTime(TimeDelay.TIME_10000S);
+        questions.verifyAnyErrorMessageWhileSave();
+        questions.verifyQuestionIDfield();
         questions.verifyQuestionLearningMaps();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify when all the manditory field is filled and clicked on save button, the question should be created and a unquie code number should be created.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify when all the manditory field is filled and clicked on save button, the question should be created and a unquie code number should be created.")
     @Description("Verify when all the manditory field is filled and clicked on save button, the question should be created and a unquie code number should be created.")
     public void questionShouldCreateQuestionIDNumber() {
         questions.clkQuestions();
@@ -271,10 +278,11 @@ public class SingleChoice extends TestBase {
         questions.selectSingleChoiceQuestCreation();
         questions.singleChoiceQuestionDetails();
         questions.clkSaveBtn();
+        questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify by default the version number should be 1 and Curator name must be displayed with change and action column.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify by default the version number should be 1 and Curator name must be displayed with change and action column.")
     @Description("Verify by default the version number should be 1 and Curator name must be displayed with change and action column.")
     public void versionNumberShould1AndCuratorNameMustDisplayed() {
         questions.clkQuestions();
@@ -283,12 +291,13 @@ public class SingleChoice extends TestBase {
         questions.selectSingleChoiceQuestCreation();
         questions.singleChoiceQuestionDetails();
         questions.clkSaveBtn();
-        delayTime(TimeDelay.TIME_5000S);
+        questions.verifyAnyErrorMessageWhileSave();
+        questions.verifyQuestionIDfield();
         questions.verifyVersionChange("1");
         questions.verifyVersionEditorName(prop.getProperty("UserName"));
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify user should be able to edit the question created.")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify user should be able to edit the question created.")
     @Description("Verify user should be able to edit the question created.")
     public void userShouldAbleToEditQuestionCreated() {
         questions.clkQuestions();
@@ -297,13 +306,14 @@ public class SingleChoice extends TestBase {
         questions.selectSingleChoiceQuestCreation();
         questions.singleChoiceQuestionDetails();
         questions.clkSaveBtn();
+        questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.enterQuestionText(" Add data");
         questions.clkSaveBtn();
 
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify each time the question is edited new version number is added")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify each time the question is edited new version number is added")
     @Description("Verify each time the question is edited new version number is added")
     public void eachTimeQuestionEditedNewVersionNumberAdded() {
         questions.clkQuestions();
@@ -315,13 +325,15 @@ public class SingleChoice extends TestBase {
         questions.verifyQuestionIDfield();
         questions.enterQuestionText(" Add data");
         questions.clkSaveBtn();
+        questions.verifyAnyErrorMessageWhileSave();
+        questions.verifyQuestionIDfield();
         questions.verifyVersionChange("2");
         questions.verifyVersionEditorName(prop.getProperty("UserName"));
     }
 
 
-    //This Test case has to be run after question has more than 1 secondary concept
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify if user removes or delete any data from the question while edit, the question must get updated accordingly and version number should be added.")
+    //This Testing case has to be run after question has more than 1 secondary concept
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify if user removes or delete any data from the question while edit, the question must get updated accordingly and version number should be added.")
     @Description("Verify if user removes or delete any data from the question while edit, the question must get updated accordingly and version number should be added.")
     public void removesAnyDataEditVersionNumberShouldUpdated() {
         questions.clkQuestions();
@@ -334,12 +346,13 @@ public class SingleChoice extends TestBase {
         questions.enterSecodaryConcept2();
         questions.enterSecodaryConcept3();
         questions.clkSaveBtn();
+        questions.verifyAnyErrorMessageWhileSave();
         questions.verifyQuestionIDfield();
         questions.removeSecondaryConcept();
         questions.clkSaveBtn();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify if user able to find the duplicate questions by clicking on \"deduplication\"")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify if user able to find the duplicate questions by clicking on \"deduplication\"")
     @Description("Verify if user able to find the duplicate questions by clicking on \"deduplication\"")
     public void ableToFindDuplicateQuestionsByDeduplication() {
         questions.clkQuestions();
@@ -352,8 +365,8 @@ public class SingleChoice extends TestBase {
         questions.closeDuplication();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify if user able to do smartTag for JEE main question type with question details")
-    @Description("Verify if user able to do smartTag for JEE mainquestion type with question details")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify if user able to do smartTag for JEE main question type with question details")
+    @Description("Verify if user able to do smartTag for JEE main question type with question details")
     public void ableToSmartTagJEEmainQuestionTypeQuestion() {
         questions.clkQuestions();
         questions.clkCreateQuestion();
@@ -369,7 +382,7 @@ public class SingleChoice extends TestBase {
         questions.verifyIdealTime();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify if user able to do smartTag for NEET question type with question details")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE}, description = "Verify if user able to do smartTag for NEET question type with question details")
     @Description("Verify if user able to do smartTag for NEET question type with question details")
     public void ableToSmartTagNEETQuestionTypeQuestion() {
         questions.clkQuestions();
@@ -386,22 +399,22 @@ public class SingleChoice extends TestBase {
         questions.verifyIdealTime();
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify error message if click on smartTag without question details")
-    @Description("Verify error message if click on smartTag without question details")
-    public void errorMessageClickSmartTagWithoutQuestionDetails() {
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify error message if click on smartTag without question details")
+    @Description("Verify error message if click on save without question details")
+    public void errorMessageClickSaveWithoutQuestionDetails() {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
         questions.selectSingleChoiceQuestCreation();
         questions.waitForQuestionEditorEnable();
         questions.selectSmartTaggingJEEmain();
-        questions.clkSmartTagButton();
+        questions.clkSaveBtn();
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithoutQuestionDetails"));
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify error message if click on smartTag without Option details")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify error message if click on smartTag without Option details")
     @Description("Verify error message if click on smartTag without Option details")
-    public void errorMessageClickSmartTagWithoutOptionDetails() {
+    public void errorMessageClickSaveWithoutOptionDetails() {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
@@ -409,13 +422,13 @@ public class SingleChoice extends TestBase {
         questions.waitForQuestionEditorEnable();
         questions.enterQuestionText(prop.getProperty("SingleChoiceQuestionText"));
         questions.selectSmartTaggingJEEmain();
-        questions.clkSmartTagButton();
+        questions.clkSaveBtn();
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithoutAnswerOption"));
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify error message if click on smartTag without selecting correct Option")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify error message if click on smartTag without selecting correct Option")
     @Description("Verify error message if click on smartTag without selecting correct Option")
-    public void errorMessageClickSmartTagWithoutSelectingCorrectOption() {
+    public void errorMessageClickSaveWithoutSelectingCorrectOption() {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
@@ -426,14 +439,14 @@ public class SingleChoice extends TestBase {
         questions.enterOptionText2(prop.getProperty("option2"));
         questions.removeOption3and4();
         questions.selectSmartTaggingJEEmain();
-        questions.clkSmartTagButton();
+        questions.clkSaveBtn();
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithoutSelectingAnswerOption"));
     }
 
-    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION}, description = "Verify error message if click on smartTag without entering solution for question")
+    @Test(groups = {Categories.ICMS_QUESTION, Categories.ICMS_QUESTION_CREATION, Categories.ICMS_SINGLECHOICE, Categories.ICMS_SMOKE_TEST_CASE}, description = "Verify error message if click on smartTag without entering solution for question")
     @Description("Verify error message if click on smartTag without entering solution for question")
     @Story("Questions : Smart Tagging")
-    public void errorMessageClickSmartTagWithoutEnteringSolution() {
+    public void errorMessageClickSaveWithoutEnteringSolution() {
         questions.clkQuestions();
         questions.clkCreateQuestion();
         questions.clkQuestionType();
@@ -445,7 +458,7 @@ public class SingleChoice extends TestBase {
         questions.enterOptionText2(prop.getProperty("option2"));
         questions.removeOption3and4();
         questions.selectSmartTaggingJEEmain();
-        questions.clkSmartTagButton();
+        questions.clkSaveBtn();
         questions.verifyErrorMessage(prop.getProperty("ErrorMessageWithoutSolution"));
     }
 }

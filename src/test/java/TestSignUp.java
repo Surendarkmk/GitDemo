@@ -22,7 +22,7 @@ public class TestSignUp extends TestBase {
     @Test(priority = 2)
     public void enterOnlyUsernameClickSignup() {
         objsignup.clearUsernamePassword();
-        objsignup.enterFirstname("Test");
+        objsignup.enterFirstname("Testing");
         objsignup.createAccount();
         objsignup.setValidationMsgLname();
         objsignup.delay();
@@ -31,7 +31,7 @@ public class TestSignUp extends TestBase {
     @Test(priority = 3)
     public void enterOnlyPasswordClickSignup() {
         objsignup.clearFnameLname();
-        objsignup.enterFirstname("Test");
+        objsignup.enterFirstname("Testing");
         objsignup.enterLastname("embibe");
         objsignup.clearUsernamePassword();
         objsignup.enterEmail("");
@@ -44,7 +44,7 @@ public class TestSignUp extends TestBase {
     @Test(priority = 4)
     public void checkValidationMsginReenterPass() {
         objsignup.clearFnameLname();
-        objsignup.enterFirstname("Test");
+        objsignup.enterFirstname("Testing");
         objsignup.enterLastname("Embibe");
         objsignup.clearUsernamePassword();
         objsignup.enterEmail("Surendar@embibe.com");
@@ -58,7 +58,7 @@ public class TestSignUp extends TestBase {
     @Test(priority = 5)
     public void checkValidationMsgincorrectPass() {
         objsignup.clearFnameLname();
-        objsignup.enterFirstname("Test");
+        objsignup.enterFirstname("Testing");
         objsignup.enterLastname("Embibe");
         objsignup.clearUsernamePassword();
         objsignup.enterEmail("Surendar@embibe.com");
@@ -73,7 +73,7 @@ public class TestSignUp extends TestBase {
     @Test(priority = 6)
     public void existingUserSignup() {
         objsignup.clearFnameLname();
-        objsignup.enterFirstname("Test");
+        objsignup.enterFirstname("Testing");
         objsignup.enterLastname("Embibe");
         objsignup.clearUsernamePassword();
         objsignup.enterEmail("Surendar@embibe.com");
@@ -88,7 +88,7 @@ public class TestSignUp extends TestBase {
     @Test(priority = 7)
     public void login(){
         objsignup.login(); //screen should naviagate to login screen While click Login through signUp screen
-        objlogin.setUsernamePassword("Test-admin@embibe.com", "embibe1234");
+        objlogin.setUsernamePassword("Testing-admin@embibe.com", "embibe1234");
         objlogin.clickLogin();
     }
 }

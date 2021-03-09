@@ -16,7 +16,7 @@ public class TestValidation extends TestBase {
         testcreation.clkExamTypeDropDown();
         testcreation.selectExam("JEE Main");
         testcreation.enterTestFormatName("Validation Assertion");
-        testcreation.enterTestFormatInstructions("Instruction for JEE Mains Part Test");
+        testcreation.enterTestFormatInstructions("Instruction for JEE Mains Part Testing");
         testcreation.clkValidateBtn();
         testcreation.verifyErrorMessage("");
     }
@@ -31,7 +31,7 @@ public class TestValidation extends TestBase {
         testcreation.clkExamTypeDropDown();
         testcreation.selectExam("JEE Main");
         testcreation.enterTestFormatName("Validation Assertion");
-        testcreation.enterTestFormatInstructions("Instruction for JEE Mains Part Test");
+        testcreation.enterTestFormatInstructions("Instruction for JEE Mains Part Testing");
         testcreation.enterPhysicsQuestionId("20000209");
         testcreation.clkValidateBtn();
         testcreation.verifyErrorMessage("Question type not related to Question ID/s 20000209");

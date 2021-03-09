@@ -111,8 +111,8 @@ public class StepByStepSolution extends TestBase {
         questions.clkBlockQuotes();
         questions.clkCreateStepButton();
         questions.enterMetaTagStepToStepNumber("1", prop.getProperty("ConceptName"));
-        questions.clkLearningMapOnStepNumber("1");
-        questions.enterTopicOnStepNumber("1");
+        //questions.clkLearningMapOnStepNumber("1");
+        //questions.enterTopicOnStepNumber("1");
         questions.enterStepSolutionText1();
         questions.clkCreateStepButton();
     }
@@ -128,23 +128,15 @@ public class StepByStepSolution extends TestBase {
         questions.selectCorrectOption1();
         questions.enterStepSolutionText1();
         questions.clkBlockQuotes();
-        /*questions.enterStepSolutionText1();
-        questions.clkBlockQuotes();*/
+        questions.enterStepSolutionText1();
+        questions.clkBlockQuotes();
         questions.clkCreateStepButton();
         questions.enterMetaTagStepToStepNumber("1", prop.getProperty("ConceptName"));
-        questions.clkLearningMapOnStepNumber("1");
-        questions.enterTopicOnStepNumber("1");
-        questions.clkHintsOnStepNumber("1");
-        questions.enterHintsOnStep("1");
         questions.clkMarksOnStepNumber("1");
         questions.enterMarksForStep("1");
-       /* questions.enterMetaTagStepToStepNumber("2");
-        questions.clkLearningMapOnStepNumber("2");
-        questions.enterTopicOnStepNumber("2");
-        questions.clkHintsOnStepNumber("2");
-        questions.enterHintsOnStep("2");
+        questions.enterMetaTagStepToStepNumber("2", prop.getProperty("ConceptName"));
         questions.clkMarksOnStepNumber("2");
-        questions.enterMarksForStep("2");*/
+        questions.enterMarksForStep("2");
         questions.enterOptionText2("Option Text 2");
         questions.removeOption3and4();
         questions.BookMetaTags();
@@ -155,3 +147,4 @@ public class StepByStepSolution extends TestBase {
         questions.verifyQuestionIDfield();
     }
 }
+

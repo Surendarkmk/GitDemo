@@ -64,7 +64,7 @@ public class TestFormat extends TestBase {
     WebElement createNewTestormatBtn;
     @FindBy(xpath = "//*[@id=\"app\"]/div/div[3]/div[1]/img")
     WebElement closeTestFormat;
-    @FindBy(xpath = "//*[@id=\"side-menu\"]/li[9]/a")
+    @FindBy(xpath = "//*[contains(text(),'Test Format')]")
     WebElement Test_Format;
     @FindBy(xpath = "((//*[@id=\"outlined-dense\"])[1])")
     WebElement formatName;
@@ -2141,5 +2141,4 @@ public class TestFormat extends TestBase {
     public void getErrorMessage(){
     errorMessage.getText();
     }
-
 }
